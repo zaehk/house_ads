@@ -1,0 +1,6 @@
+framework module Pods_iOSCodeChallenge_iOSCodeChallengeUITests {
+  umbrella header "Pods-iOSCodeChallenge-iOSCodeChallengeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
