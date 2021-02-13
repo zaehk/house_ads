@@ -21,4 +21,9 @@ struct Literals {
         
     }
     
+    struct Transactions {
+        static let onSale = "on_sale_tipology".localized()
+        static let forRent = "rent_tipology".localized()
+    }
+    
 }
