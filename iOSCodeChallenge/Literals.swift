@@ -9,16 +9,17 @@ import Foundation
 
 struct Literals {
     
-    struct IDResultList {
-        
+    struct AdList {
+        static let title = "tabbar_item_adList".localized()
     }
     
-    struct IDResultDetail {
-        
+    struct AdDetail {
+        static let title = "".localized()
     }
     
-    struct IDFavoriteList {
-        
+    struct Favorites {
+        static let title = "tabbar_item_favorites".localized()
+
     }
     
     struct Transactions {

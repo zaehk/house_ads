@@ -6,6 +6,11 @@
   
 */
 
+//tabbar items
+
+"tabbar_item_adList" = "Anuncios";
+"tabbar_item_favorites" = "Favoritos";
+
 //transaction type
 
 "on_sale_tipology" = "%@ en venta";

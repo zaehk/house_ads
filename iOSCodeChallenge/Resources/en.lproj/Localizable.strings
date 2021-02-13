@@ -6,6 +6,11 @@
   
 */
 
+//tabbar items
+
+"tabbar_item_adList" = "Real estate ads";
+"tabbar_item_favorites" = "Favorites";
+
 //transaction type
 
 "on_sale_tipology" = "%@ on sale";
