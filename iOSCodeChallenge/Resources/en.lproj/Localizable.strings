@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  iOSCodeChallenge
+
+  Created by Borja Saez de Guinoa Vilaplana on 13/2/21.
+  
+*/
+
+//transaction type
+
+"on_sale_tipology" = "%@ on sale";
+"rent_tipology" = "%@ for rent";
+
