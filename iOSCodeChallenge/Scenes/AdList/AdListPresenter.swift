@@ -10,18 +10,30 @@ import UIKit
 
 protocol AdListPresentationLogic
 {
-  func presentSomething(response: AdList.Something.Response)
+    func presentRealStateAds(response: [IDResultDTO])
+    func presentErrorFetchingRealStateAds()
 }
 
 class AdListPresenter: AdListPresentationLogic
 {
-  weak var viewController: AdListDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: AdList.Something.Response)
-  {
-    let viewModel = AdList.Something.ViewModel()
-    //viewController?.displaySomething(viewModel: viewModel)
-  }
+    
+    weak var viewController: AdListDisplayLogic?
+    
+    // MARK: Do something
+    
+    func presentRealStateAds(response: [IDResultDTO]) {
+        
+        //parse to viewmodel
+        
+        
+        //viewcontroller.showRealStateAds()
+        
+    }
+    
+    func presentErrorFetchingRealStateAds() {
+        //create empty state view
+        
+        //viewcontroller.showEmptyState()
+    }
+    
 }

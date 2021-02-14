@@ -11,8 +11,18 @@
 "tabbar_item_adList" = "Real estate ads";
 "tabbar_item_favorites" = "Favorites";
 
+//refresh control
+"refresh_description" = "Pull to refresh";
+
 //transaction type
 
 "on_sale_tipology" = "%@ on sale";
 "rent_tipology" = "%@ for rent";
 
+//ad house type
+
+"house_type_flat" = "Flat";
+"house_type_studio" = "Studio";
+"house_type_penthouse" = "Penthouse";
+"house_type_duplex" = "Duplex";
+"house_type_chalet" = "Chalet";

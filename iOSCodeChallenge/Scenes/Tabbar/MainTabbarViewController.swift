@@ -18,7 +18,7 @@ class MainTabbarController: UITabBarController {
         self.tabBar.unselectedItemTintColor = .black
         self.tabBar.isTranslucent = false
         
-        let adListVC = IDResultListTableViewController()
+        let adListVC = AdListBuilder.viewController()
         adListVC.tabBarItem = UITabBarItem.init(title: Literals.AdList.title , image: UIImage.init(named: "tabbar_adList"), tag: 0)
         let adListNavigationController = IDNavigationController.init(rootViewController: adListVC)
 

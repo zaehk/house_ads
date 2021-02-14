@@ -92,7 +92,7 @@
 		13F460233F2A555D41511B6CCA66A124 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		141BC33167429B9926FB24A17F01568C /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
 		19CAFF7AE4A5C8616026E1F67C56C7C5 /* Pods-iOSCodeChallenge-iOSCodeChallengeUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOSCodeChallenge-iOSCodeChallengeUITests.modulemap"; sourceTree = "<group>"; };
-		233484618833E0AD6DDF523D7A220E44 /* Pods_iOSCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iOSCodeChallenge.framework; path = "Pods-iOSCodeChallenge.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		233484618833E0AD6DDF523D7A220E44 /* Pods_iOSCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		250E41DBB680A3A2ECDDD2210311B230 /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
 		25479F58B67AA43E092C7B156C1B5C1B /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
 		254F379BAE3704D5360B51034C6E61CB /* Pods-iOSCodeChallenge-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOSCodeChallenge-frameworks.sh"; sourceTree = "<group>"; };
@@ -112,13 +112,13 @@
 		549471CD1FE3A1E1865DD172864918D3 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		56006AA49A060CA2830F32CD6F394823 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		5D5C942D995961B7350D1D7F9CC6079A /* Pods-iOSCodeChallenge-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOSCodeChallenge-dummy.m"; sourceTree = "<group>"; };
-		611379CBE0BA78FC5021E72E3A6088D5 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework; path = "Pods-iOSCodeChallenge-iOSCodeChallengeUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		611379CBE0BA78FC5021E72E3A6088D5 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C5188AE61F0E667CD9E7ED28CDD61C /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
 		6A9341666EAC154422A032092A7DC2D7 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		6D990E0FED5B41C1F13AC6B08208A99B /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		724FB64349F5678CE1709979CF0DD952 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		75F3917C7C401A099C1AEDFDB2631506 /* Pods_iOSCodeChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iOSCodeChallengeTests.framework; path = "Pods-iOSCodeChallengeTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75F3917C7C401A099C1AEDFDB2631506 /* Pods_iOSCodeChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7600380329A57B158AC1220A60DAC545 /* Pods-iOSCodeChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSCodeChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		7889131C1139F96BBDA94CEE2E694763 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		7AE00ECC24C5CC6DC938204FF42AD0E5 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Source/ConstraintDSL.swift; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 		91A53CAF547D71AEFABE49D91B4E6816 /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
 		92A5F261AE8D62D9FFC657C91F22679B /* Pods-iOSCodeChallenge-iOSCodeChallengeUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOSCodeChallenge-iOSCodeChallengeUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9716AD15FADF38A93170E034F2BCE457 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
-		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FC0135DFE0F5DBCDDA90EDD408951D0 /* Pods-iOSCodeChallenge.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOSCodeChallenge.modulemap"; sourceTree = "<group>"; };
 		A1CD432F32277BB93DEAADA626ECEC5B /* SnapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.release.xcconfig; sourceTree = "<group>"; };
 		A2EA72DFF2EA19429080645891333A6B /* Pods-iOSCodeChallenge-iOSCodeChallengeUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOSCodeChallenge-iOSCodeChallengeUITests-frameworks.sh"; sourceTree = "<group>"; };
@@ -288,7 +288,6 @@
 				6A9341666EAC154422A032092A7DC2D7 /* UILayoutSupport+Extensions.swift */,
 				843EFF0C650682C304D518A9092EE9FD /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -680,7 +679,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1000,7 +999,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

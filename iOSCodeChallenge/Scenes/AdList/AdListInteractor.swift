@@ -9,28 +9,41 @@ import UIKit
 
 protocol AdListBusinessLogic
 {
-  func doSomething(request: AdList.Something.Request)
+    func fetchRealStateAds()
 }
 
 protocol AdListDataStore
 {
-  //var name: String { get set }
+    var realStateAdsResuolts: [IDResultDTO] { get set }
 }
 
 class AdListInteractor: AdListBusinessLogic, AdListDataStore
 {
-  var presenter: AdListPresentationLogic?
-  var worker: AdListWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: AdList.Something.Request)
-  {
-    worker = AdListWorker()
-    worker?.doSomeWork()
+    var realStateAdsResuolts: [IDResultDTO] = []
+
+    var presenter: AdListPresentationLogic?
     
-    let response = AdList.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    func fetchRealStateAds() {
+        let resultListURL = URL(string: "https://www.mocky.io/v3/364d4f62-c183-4f12-ba16-49bfc5c820ab")!
+
+        var urlRequest = URLRequest(url: resultListURL)
+        urlRequest.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            
+            if let data = data, error == nil {
+                let jsonDecoder = JSONDecoder()
+                if let results = try? jsonDecoder.decode(IDResultsDTO.self, from: data) {
+                    DispatchQueue.main.async {
+                        self.presenter?.presentRealStateAds(response: results.elementList)
+                    }
+                }
+            } else if let _ = error {
+                
+            }
+        }.resume()
+        
+        
+    }
+    
 }

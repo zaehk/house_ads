@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,7 +28,6 @@
 		DA46093425D7E42400A69DD0 /* AdListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46092E25D7E42400A69DD0 /* AdListPresenter.swift */; };
 		DA46093525D7E42400A69DD0 /* AdListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46092F25D7E42400A69DD0 /* AdListWorker.swift */; };
 		DA46093625D7E42400A69DD0 /* AdListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46093025D7E42400A69DD0 /* AdListRouter.swift */; };
-		DA46093725D7E42400A69DD0 /* AdListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46093125D7E42400A69DD0 /* AdListModels.swift */; };
 		DA46093825D7E42400A69DD0 /* AdListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46093225D7E42400A69DD0 /* AdListViewController.swift */; };
 		DA46093925D7E42400A69DD0 /* AdListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46093325D7E42400A69DD0 /* AdListInteractor.swift */; };
 		DA46094925D7E7CB00A69DD0 /* AdListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46094825D7E7CB00A69DD0 /* AdListBuilder.swift */; };
@@ -49,6 +48,12 @@
 		DA4609A025D7EF0700A69DD0 /* FavoriteAdsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46099A25D7EF0700A69DD0 /* FavoriteAdsListInteractor.swift */; };
 		DA4609A525D7EF1600A69DD0 /* FavoriteAdsListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4609A425D7EF1600A69DD0 /* FavoriteAdsListBuilder.swift */; };
 		DA4609AA25D7F65800A69DD0 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4609A925D7F65800A69DD0 /* Styles.swift */; };
+		DA4609C225D8030700A69DD0 /* TableViewCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4609C125D8030700A69DD0 /* TableViewCellProtocols.swift */; };
+		DA4609CE25D8038300A69DD0 /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4609CA25D8038300A69DD0 /* AdTableViewCell.swift */; };
+		DA4609CF25D8038300A69DD0 /* AdCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4609CB25D8038300A69DD0 /* AdCellModel.swift */; };
+		DA4609D125D8038300A69DD0 /* AdCellDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4609CD25D8038300A69DD0 /* AdCellDrawer.swift */; };
+		DA4609ED25D80ECA00A69DD0 /* IDEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4609EC25D80ECA00A69DD0 /* IDEnums.swift */; };
+		DA8F58CC25D92658005F098D /* AdListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58CB25D92658005F098D /* AdListViewModel.swift */; };
 		DC23D39D7AFF0EE0D5F9BD4B /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +110,6 @@
 		DA46092E25D7E42400A69DD0 /* AdListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListPresenter.swift; sourceTree = "<group>"; };
 		DA46092F25D7E42400A69DD0 /* AdListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListWorker.swift; sourceTree = "<group>"; };
 		DA46093025D7E42400A69DD0 /* AdListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListRouter.swift; sourceTree = "<group>"; };
-		DA46093125D7E42400A69DD0 /* AdListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListModels.swift; sourceTree = "<group>"; };
 		DA46093225D7E42400A69DD0 /* AdListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListViewController.swift; sourceTree = "<group>"; };
 		DA46093325D7E42400A69DD0 /* AdListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListInteractor.swift; sourceTree = "<group>"; };
 		DA46094825D7E7CB00A69DD0 /* AdListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListBuilder.swift; sourceTree = "<group>"; };
@@ -126,6 +130,12 @@
 		DA46099A25D7EF0700A69DD0 /* FavoriteAdsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAdsListInteractor.swift; sourceTree = "<group>"; };
 		DA4609A425D7EF1600A69DD0 /* FavoriteAdsListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAdsListBuilder.swift; sourceTree = "<group>"; };
 		DA4609A925D7F65800A69DD0 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		DA4609C125D8030700A69DD0 /* TableViewCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProtocols.swift; sourceTree = "<group>"; };
+		DA4609CA25D8038300A69DD0 /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
+		DA4609CB25D8038300A69DD0 /* AdCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCellModel.swift; sourceTree = "<group>"; };
+		DA4609CD25D8038300A69DD0 /* AdCellDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCellDrawer.swift; sourceTree = "<group>"; };
+		DA4609EC25D80ECA00A69DD0 /* IDEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDEnums.swift; sourceTree = "<group>"; };
+		DA8F58CB25D92658005F098D /* AdListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListViewModel.swift; sourceTree = "<group>"; };
 		E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD621F267E207638E0E5408D /* Pods-iOSCodeChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSCodeChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSCodeChallengeTests/Pods-iOSCodeChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +206,7 @@
 				22A2D6B825C4221000E174E6 /* Info.plist */,
 				DA46090525D7DAF600A69DD0 /* Literals.swift */,
 				DA4609A925D7F65800A69DD0 /* Styles.swift */,
+				DA4609EC25D80ECA00A69DD0 /* IDEnums.swift */,
 			);
 			path = iOSCodeChallenge;
 			sourceTree = "<group>";
@@ -258,7 +269,6 @@
 				FD621F267E207638E0E5408D /* Pods-iOSCodeChallengeTests.debug.xcconfig */,
 				5FBE6D88468B047292B2584E /* Pods-iOSCodeChallengeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -295,10 +305,10 @@
 				DA46092E25D7E42400A69DD0 /* AdListPresenter.swift */,
 				DA46092F25D7E42400A69DD0 /* AdListWorker.swift */,
 				DA46093025D7E42400A69DD0 /* AdListRouter.swift */,
-				DA46093125D7E42400A69DD0 /* AdListModels.swift */,
 				DA46093225D7E42400A69DD0 /* AdListViewController.swift */,
 				DA46093325D7E42400A69DD0 /* AdListInteractor.swift */,
 				DA46094825D7E7CB00A69DD0 /* AdListBuilder.swift */,
+				DA8F58CB25D92658005F098D /* AdListViewModel.swift */,
 			);
 			path = AdList;
 			sourceTree = "<group>";
@@ -350,6 +360,7 @@
 		DA46098525D7EE5E00A69DD0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DA4609BF25D802EF00A69DD0 /* TableViewCells */,
 				DA46098625D7EE7100A69DD0 /* NavigationController */,
 			);
 			path = UI;
@@ -361,6 +372,33 @@
 				DA46098725D7EE8600A69DD0 /* IDNavigationController.swift */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		DA4609BF25D802EF00A69DD0 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				DA4609D825D8038900A69DD0 /* AdTableViewCell */,
+				DA4609C025D802F800A69DD0 /* Protocols */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		DA4609C025D802F800A69DD0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DA4609C125D8030700A69DD0 /* TableViewCellProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DA4609D825D8038900A69DD0 /* AdTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DA4609CA25D8038300A69DD0 /* AdTableViewCell.swift */,
+				DA4609CB25D8038300A69DD0 /* AdCellModel.swift */,
+				DA4609CD25D8038300A69DD0 /* AdCellDrawer.swift */,
+			);
+			path = AdTableViewCell;
 			sourceTree = "<group>";
 		};
 		EB878A2685826DEE8B9D12E4 /* Frameworks */ = {
@@ -615,19 +653,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4609AA25D7F65800A69DD0 /* Styles.swift in Sources */,
+				DA4609ED25D80ECA00A69DD0 /* IDEnums.swift in Sources */,
 				DA46096E25D7E90900A69DD0 /* AdDetailModels.swift in Sources */,
 				DA46099C25D7EF0700A69DD0 /* FavoriteAdsListWorker.swift in Sources */,
 				DA46097025D7E90900A69DD0 /* AdDetailInteractor.swift in Sources */,
 				22A2D72425C425DF00E174E6 /* IDResultMultimediaDTO.swift in Sources */,
 				DA46099E25D7EF0700A69DD0 /* FavoriteAdsListModels.swift in Sources */,
 				DA46099B25D7EF0700A69DD0 /* FavoriteAdsListPresenter.swift in Sources */,
-				DA46093725D7E42400A69DD0 /* AdListModels.swift in Sources */,
 				DA46099F25D7EF0700A69DD0 /* FavoriteAdsListViewController.swift in Sources */,
+				DA4609CF25D8038300A69DD0 /* AdCellModel.swift in Sources */,
 				DA46096D25D7E90900A69DD0 /* AdDetailRouter.swift in Sources */,
 				DA46096B25D7E90900A69DD0 /* AdDetailPresenter.swift in Sources */,
 				DA46093525D7E42400A69DD0 /* AdListWorker.swift in Sources */,
 				DA46090625D7DAF600A69DD0 /* Literals.swift in Sources */,
 				DA46097525D7E92400A69DD0 /* AdDetailBuilder.swift in Sources */,
+				DA8F58CC25D92658005F098D /* AdListViewModel.swift in Sources */,
+				DA4609CE25D8038300A69DD0 /* AdTableViewCell.swift in Sources */,
 				DA46098025D7EA0100A69DD0 /* MainTabbarViewController.swift in Sources */,
 				DA46093625D7E42400A69DD0 /* AdListRouter.swift in Sources */,
 				22A2D72E25C4265F00E174E6 /* IDResultsDTO.swift in Sources */,
@@ -644,9 +685,11 @@
 				DA46098825D7EE8600A69DD0 /* IDNavigationController.swift in Sources */,
 				DA46099D25D7EF0700A69DD0 /* FavoriteAdsListRouter.swift in Sources */,
 				22A2D73325C427A600E174E6 /* IDResultListTableViewCell.swift in Sources */,
+				DA4609D125D8038300A69DD0 /* AdCellDrawer.swift in Sources */,
 				DA46093425D7E42400A69DD0 /* AdListPresenter.swift in Sources */,
 				DA46093825D7E42400A69DD0 /* AdListViewController.swift in Sources */,
 				DA46093925D7E42400A69DD0 /* AdListInteractor.swift in Sources */,
+				DA4609C225D8030700A69DD0 /* TableViewCellProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,7 +798,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -811,7 +854,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

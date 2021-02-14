@@ -27,4 +27,16 @@ struct Literals {
         static let forRent = "rent_tipology".localized()
     }
     
+    struct RealStateType {
+        static let flat = "house_type_flat".localized()
+        static let studio = "house_type_studio".localized()
+        static let penthouse = "house_type_penthouse".localized()
+        static let duplex = "house_type_duplex".localized()
+        static let chalet = "house_type_chalet".localized()
+    }
+    
+    struct Common {
+        static let refreshControlDescription = "refresh_description".localized()
+    }
+    
 }
