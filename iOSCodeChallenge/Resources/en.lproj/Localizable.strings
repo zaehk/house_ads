@@ -26,3 +26,7 @@
 "house_type_penthouse" = "Penthouse";
 "house_type_duplex" = "Duplex";
 "house_type_chalet" = "Chalet";
+
+//empty states
+"empty_state_favorites" = "No favorites added yet\nWhen you find an ad that you like, tap on the heart icon to see it here";
+"empty_state_adList" = "No ads to show\ncome back in a while to see if there are new items";

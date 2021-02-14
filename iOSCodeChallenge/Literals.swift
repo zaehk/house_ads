@@ -39,4 +39,9 @@ struct Literals {
         static let refreshControlDescription = "refresh_description".localized()
     }
     
+    struct EmptyState{
+        static let favorites = "empty_state_favorites".localized()
+        static let adList = "empty_state_adList".localized()
+    }
+    
 }

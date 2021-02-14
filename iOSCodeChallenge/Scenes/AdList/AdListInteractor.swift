@@ -35,7 +35,8 @@ class AdListInteractor: AdListBusinessLogic, AdListDataStore
                 let jsonDecoder = JSONDecoder()
                 if let results = try? jsonDecoder.decode(IDResultsDTO.self, from: data) {
                     DispatchQueue.main.async {
-                        self.presenter?.presentRealStateAds(response: results.elementList)
+                        let fakeFavoriteList = results.elementList.map({($0,false)})
+                        self.presenter?.presentRealStateAds(response: fakeFavoriteList)
                     }
                 }
             } else if let _ = error {

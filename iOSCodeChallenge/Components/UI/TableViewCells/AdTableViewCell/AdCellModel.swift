@@ -8,7 +8,17 @@ import Foundation
 
 internal final class AdCellModel {
     
-    let isFavorite: Bool = false
+    let isFavorite: Bool
+    let price: String
+    let description: String
+    let imagesURL: [String]
+    
+    init(adViewModel: AdViewModel){
+        self.price = adViewModel.price
+        self.isFavorite = adViewModel.isFavorite
+        self.description = adViewModel.propertyTypeAndTopologyDescription
+        self.imagesURL = adViewModel.images
+    }
     
 }
 

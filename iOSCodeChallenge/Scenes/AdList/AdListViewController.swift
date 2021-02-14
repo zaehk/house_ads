@@ -35,7 +35,6 @@ class AdListViewController: UITableViewController
         refreshControl?.attributedTitle = NSAttributedString(string: Literals.Common.refreshControlDescription)
         refreshControl?.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
     }
     
@@ -81,6 +80,14 @@ extension AdListViewController: AdListDisplayLogic {
 //MARK: -TableViewDataSource & Delegate
 
 extension AdListViewController {
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if cellModels[indexPath.row] is EmptyStateCellModel {
+            return tableView.frame.height
+        } else {
+            return  UITableView.automaticDimension
+        }
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cellModels.count

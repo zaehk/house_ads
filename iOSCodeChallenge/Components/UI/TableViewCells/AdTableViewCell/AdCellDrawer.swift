@@ -11,8 +11,7 @@ internal final class AdCellDrawer: CellDrawerProtocol {
     //Dequeue and register
     
     func dequeueCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.register(UINib(nibName: AdTableViewCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: AdTableViewCell.cellIdentifier())
-        
+        tableView.register(AdTableViewCell.self, forCellReuseIdentifier: AdTableViewCell.cellIdentifier())
         return tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.cellIdentifier(), for: indexPath)
     }
     
@@ -23,9 +22,10 @@ internal final class AdCellDrawer: CellDrawerProtocol {
             return
         }
         
-        //example
-       // cell.setTitleLabelText(text: cellVM.title)
-   
+        cell.setFavoriteStatus(isFavorite: cellVM.isFavorite)
+        cell.setPrice(price: cellVM.price)
+        cell.setRealStateDescription(adDescription: cellVM.description)
+        cell.setImages(imagesURL: cellVM.imagesURL)
     }
 }
 
