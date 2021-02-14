@@ -15,10 +15,13 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.minimumInteritemSpacing = 0;
+        layout.minimumLineSpacing = 0;
         let collectionView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets.init(top: 10, left: 20, bottom: 10, right: 20)
+        collectionView.showsHorizontalScrollIndicator = true
+        collectionView.indicatorStyle = .white
+        collectionView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
@@ -30,14 +33,15 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        label.textColor = Styles.Colors.idealistaPurple
         label.numberOfLines = 1
-        label.textAlignment = .right
+        label.textAlignment = .left
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15,weight: .light)
+        label.font = UIFont.systemFont(ofSize: 20,weight: .bold)
         label.numberOfLines = 0
         label.textAlignment = .left
         return label
@@ -53,6 +57,7 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.backgroundColor = .clear
         self.backgroundColor = .clear
+        self.selectionStyle = .none
         setupImageCollectionView()
         setupViewsConstraints()
     }
@@ -62,35 +67,59 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         self.imagesCells = []
         self.descriptionLabel.text = nil
         self.priceLabel.text = nil
+        self.adPicturesCollectionView.reloadData()
     }
     
     private func setupImageCollectionView(){
         self.adPicturesCollectionView.delegate = self
         self.adPicturesCollectionView.dataSource = self
     }
-    
+
     private func setupViewsConstraints(){
-        addSubview(adPicturesCollectionView)
-        addSubview(favoriteButton)
-        addSubview(priceLabel)
-        addSubview(descriptionLabel)
+        let containerView = UIView()
+        containerView.backgroundColor = .white
+        containerView.layer.cornerRadius = 10
+        containerView.layer.masksToBounds = true
+        containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
+        
+        addSubview(containerView)
+        containerView.addSubview(adPicturesCollectionView)
+        containerView.addSubview(favoriteButton)
+        containerView.addSubview(priceLabel)
+        containerView.addSubview(descriptionLabel)
+        
+        //containerview constraints
+        containerView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview().inset(10)
+        }
         
         //collectionview constraints
         adPicturesCollectionView.snp.makeConstraints { (make) in
-            make.height.equalTo(250)
-            make.left.right.top.equalToSuperview()
+            make.height.equalTo(200)
+            make.width.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
         }
         
         //priceLabel constraints
         priceLabel.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview().inset(20)
-            make.top.equalTo(adPicturesCollectionView.snp.bottom).offset(10)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
+            make.bottom.equalToSuperview().inset(20)
         }
         
         //descriptionLabel constraints
         descriptionLabel.snp.makeConstraints{ (make) in
-            make.top.equalTo(priceLabel.snp.bottom).offset(5)
-            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(adPicturesCollectionView.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(20)
+        }
+        
+        //favoritesButton constraints
+        favoriteButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(descriptionLabel)
+            make.right.equalToSuperview().inset(20)
+            make.height.width.equalTo(30)
         }
     }
 
@@ -119,7 +148,7 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
 
 // MARK: - Images collectionView management
 
-extension AdTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AdTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         imagesCells.count
@@ -132,7 +161,5 @@ extension AdTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource 
         drawer.drawCollectionCell(cell, withItem: model)
         return cell
     }
-    
-    
     
 }

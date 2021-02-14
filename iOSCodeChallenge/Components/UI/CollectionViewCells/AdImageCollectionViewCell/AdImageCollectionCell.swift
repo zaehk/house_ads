@@ -15,8 +15,6 @@ internal class AdImageCollectionCell: UICollectionViewCell, GetCollectionIdentif
     private let adImageView : CustomImageView = {
         let imageView = CustomImageView()
         imageView.backgroundColor = Styles.Colors.idealistaMain
-        imageView.layer.cornerRadius = 10
-        imageView.clipsToBounds = true
         return imageView
     }()
 
@@ -35,6 +33,15 @@ internal class AdImageCollectionCell: UICollectionViewCell, GetCollectionIdentif
         super.prepareForReuse()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Improve scrolling performance with an explicit shadowPath
+        layer.shadowPath = UIBezierPath(
+            roundedRect: bounds,
+            cornerRadius: 10
+        ).cgPath
+    }
+    
     // MARK: - Constraints
     
     private func setupViewsConstraints(){
@@ -43,8 +50,8 @@ internal class AdImageCollectionCell: UICollectionViewCell, GetCollectionIdentif
         //imageview constraints
         adImageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
-            make.height.equalTo(230)
-            make.width.equalTo(400)
+            make.height.equalTo(200)
+            make.width.equalTo(300)
         }
     }
     

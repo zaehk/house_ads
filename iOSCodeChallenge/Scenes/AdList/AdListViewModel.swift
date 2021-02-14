@@ -26,6 +26,7 @@ internal struct AdViewModel {
     init(listDTO: IDResultDTO, favorite: Bool){
         self.propertyType = Property.init(rawValue: listDTO.propertyType ?? "")
         self.transaction = TransactionTipology.init(rawValue: listDTO.operation ?? "")
+        self.isFavorite = favorite
         
         if let tipology = transaction, let propertyKind = propertyType {
             self.propertyTypeAndTopologyDescription =  String(format: tipology.description, propertyKind.description)
@@ -37,11 +38,21 @@ internal struct AdViewModel {
             self.price = "\(safePrice)€"
         }
         
-        if let imageArray = listDTO.multimedia?.images {
-            images = imageArray.map({$0.url ?? ""})
+        if let safeThumbnail = listDTO.thumbnail{
+            images.append(safeThumbnail)
         }
         
-        self.isFavorite = favorite
+        if let imageArray = listDTO.multimedia?.images {
+            
+            //set imagesURL to the array
+            imageArray.forEach({
+                if let safeUrl = $0.url {
+                    images.append(safeUrl)
+                }
+            })
+            
+        }
+        
 
     }
 }
