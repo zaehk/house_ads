@@ -14,18 +14,20 @@ import UIKit
 
 protocol AdDetailPresentationLogic
 {
-  func presentSomething(response: AdDetail.Something.Response)
+    func presentAdDetail(IDDetailDTO: IDDetailDTO)
+    func presentError()
 }
 
 class AdDetailPresenter: AdDetailPresentationLogic
 {
-  weak var viewController: AdDetailDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: AdDetail.Something.Response)
-  {
-    let viewModel = AdDetail.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    
+    weak var viewController: AdDetailDisplayLogic?
+    
+    func presentAdDetail(IDDetailDTO: IDDetailDTO) {
+        print("service working")
+    }
+    
+    func presentError() {
+        
+    }
 }

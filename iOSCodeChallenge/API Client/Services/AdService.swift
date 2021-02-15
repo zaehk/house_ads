@@ -10,11 +10,12 @@ import Foundation
 protocol AdServiceProtocol: ApiServiceProtocol{
     
     func fetchAdList(success:@escaping(IDResultsDTO)->(), failure: @escaping(APIErrorType)-> ())
+    func fetchAdDetail(adURL: String, success:@escaping(IDDetailDTO)->(), failure: @escaping(APIErrorType)-> ())
     
 }
 
 class AdService: AdServiceProtocol {
-    
+
     var apiClient: ApiClientProtocol
     
     init(apiClient: ApiClientProtocol = ApiClient.shared) {
@@ -23,6 +24,10 @@ class AdService: AdServiceProtocol {
     
     func fetchAdList(success: @escaping (IDResultsDTO) -> (), failure: @escaping(APIErrorType) -> ()) {
         apiClient.makeRequest(route: ApiRouter.adList, responseModel: IDResultsDTO.self, success: success, failed: failure)
+    }
+    
+    func fetchAdDetail(adURL: String, success: @escaping (IDDetailDTO) -> (), failure: @escaping (APIErrorType) -> ()) {
+        apiClient.makeRequest(route: ApiRouter.adDetail(url: adURL), responseModel: IDDetailDTO.self, success: success, failed: failure)
     }
     
     

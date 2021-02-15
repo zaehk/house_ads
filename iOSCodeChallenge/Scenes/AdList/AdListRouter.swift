@@ -21,8 +21,6 @@ protocol AdListDataPassing
 
 class AdListRouter: NSObject, AdListRoutingLogic, AdListDataPassing
 {
-
-    
     
     weak var viewController: AdListViewController?
     var dataStore: AdListDataStore?

@@ -14,35 +14,31 @@ import UIKit
 
 protocol AdDetailDisplayLogic: class
 {
-  func displaySomething(viewModel: AdDetail.Something.ViewModel)
+    
 }
 
 class AdDetailViewController: UIViewController, AdDetailDisplayLogic
 {
-  var interactor: AdDetailBusinessLogic?
-  var router: (NSObjectProtocol & AdDetailRoutingLogic & AdDetailDataPassing)?
-
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = AdDetail.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: AdDetail.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    var interactor: AdDetailBusinessLogic?
+    var router: (NSObjectProtocol & AdDetailRoutingLogic & AdDetailDataPassing)?
+    
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        fetchAdDetail()
+    }
+    
+    // MARK: Do something
+    
+    //@IBOutlet weak var nameTextField: UITextField!
+    
+    func fetchAdDetail()
+    {
+        interactor?.fetchAdDetail()
+    }
+    
+    
 }

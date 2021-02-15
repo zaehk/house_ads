@@ -14,7 +14,7 @@ import UIKit
 
 protocol AdDetailBusinessLogic
 {
-    func doSomething(request: AdDetail.Something.Request)
+    func fetchAdDetail()
 }
 
 protocol AdDetailDataStore
@@ -24,20 +24,20 @@ protocol AdDetailDataStore
 
 class AdDetailInteractor: AdDetailBusinessLogic, AdDetailDataStore
 {
+    
     var detailURL: String = ""
-    
     var presenter: AdDetailPresentationLogic?
-    var worker: AdDetailWorker?
-    //var name: String = ""
+    var adService: AdServiceProtocol?
     
-    // MARK: Do something
-    
-    func doSomething(request: AdDetail.Something.Request)
-    {
-        worker = AdDetailWorker()
-        worker?.doSomeWork()
-        
-        let response = AdDetail.Something.Response()
-        presenter?.presentSomething(response: response)
+    init(adService: AdServiceProtocol = AdService()){
+        self.adService = adService
+    }
+
+    func fetchAdDetail() {
+        adService?.fetchAdDetail(adURL: detailURL, success: { [weak self] (detailDTO) in
+            self?.presenter?.presentAdDetail(IDDetailDTO: detailDTO)
+        }, failure: { [weak self] (error) in
+            self?.presenter?.presentError()
+        })
     }
 }
