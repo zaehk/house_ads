@@ -32,6 +32,7 @@ class AdListViewController: UITableViewController
     }
     
     private func setupTableSettings(){
+        self.refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: Literals.Common.refreshControlDescription)
         refreshControl?.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.separatorStyle = .none
@@ -66,11 +67,13 @@ class AdListViewController: UITableViewController
 extension AdListViewController: AdListDisplayLogic {
     
     func showRealStateAds(viewModel: AdListViewModel) {
+        refreshControl?.endRefreshing()
         //spinner.dismiss()
         updateCellsToShow(newCells: viewModel.cellModelsToShow)
     }
     
     func showEmptyState(viewModel: AdListViewModel) {
+        refreshControl?.endRefreshing()
         //spinner.dismiss()
         //we are using the same cells and flow to show the empty state but is separated in a different method so we could give it a customized behaviour if wanted (showing an alert...)
         updateCellsToShow(newCells: viewModel.cellModelsToShow)
