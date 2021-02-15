@@ -47,7 +47,7 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
     
     private let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = Styles.Colors.idealistaMain.withAlphaComponent(0.1)
         view.layer.borderWidth = 2
         view.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
         view.layer.cornerRadius = 10

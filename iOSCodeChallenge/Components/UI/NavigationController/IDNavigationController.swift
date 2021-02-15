@@ -22,6 +22,7 @@ class IDNavigationController: UINavigationController {
         navBarAppearance.backgroundColor = Styles.Colors.idealistaMain
         navigationBar.standardAppearance = navBarAppearance
         navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationBar.tintColor = Styles.Colors.idealistaTitles
         
     }
     
