@@ -62,6 +62,8 @@
 		DA8F58E025D9323B005F098D /* EmptyStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DC25D9323B005F098D /* EmptyStateCell.swift */; };
 		DA8F58E125D9323B005F098D /* EmptyStateCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DD25D9323B005F098D /* EmptyStateCellModel.swift */; };
 		DA8F58E325D9323B005F098D /* EmptyStateDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DF25D9323B005F098D /* EmptyStateDrawer.swift */; };
+		DAA99FB525DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */; };
+		DAA99FD425DAD8A200FBC274 /* AdTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FD325DAD8A200FBC274 /* AdTableViewCellProtocol.swift */; };
 		DC23D39D7AFF0EE0D5F9BD4B /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +154,8 @@
 		DA8F58DC25D9323B005F098D /* EmptyStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCell.swift; sourceTree = "<group>"; };
 		DA8F58DD25D9323B005F098D /* EmptyStateCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCellModel.swift; sourceTree = "<group>"; };
 		DA8F58DF25D9323B005F098D /* EmptyStateDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateDrawer.swift; sourceTree = "<group>"; };
+		DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius+Shadow.swift"; sourceTree = "<group>"; };
+		DAA99FD325DAD8A200FBC274 /* AdTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewCellProtocol.swift; sourceTree = "<group>"; };
 		E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD621F267E207638E0E5408D /* Pods-iOSCodeChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSCodeChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSCodeChallengeTests/Pods-iOSCodeChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				DA46090B25D7DC7C00A69DD0 /* String+Localizable.swift */,
+				DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				DA4609CA25D8038300A69DD0 /* AdTableViewCell.swift */,
 				DA4609CB25D8038300A69DD0 /* AdCellModel.swift */,
 				DA4609CD25D8038300A69DD0 /* AdCellDrawer.swift */,
+				DAA99FD325DAD8A200FBC274 /* AdTableViewCellProtocol.swift */,
 			);
 			path = AdTableViewCell;
 			sourceTree = "<group>";
@@ -709,6 +715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8F58E125D9323B005F098D /* EmptyStateCellModel.swift in Sources */,
+				DAA99FB525DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift in Sources */,
 				DA4609AA25D7F65800A69DD0 /* Styles.swift in Sources */,
 				DA4609ED25D80ECA00A69DD0 /* IDEnums.swift in Sources */,
 				DA8F58E025D9323B005F098D /* EmptyStateCell.swift in Sources */,
@@ -741,6 +748,7 @@
 				22A2D72925C4261900E174E6 /* IDResultMultimediaImageDTO.swift in Sources */,
 				DA46090C25D7DC7C00A69DD0 /* String+Localizable.swift in Sources */,
 				22A2D71F25C4252900E174E6 /* IDResultDTO.swift in Sources */,
+				DAA99FD425DAD8A200FBC274 /* AdTableViewCellProtocol.swift in Sources */,
 				22A2D71025C4230E00E174E6 /* IDResultListTableViewController.swift in Sources */,
 				DA572FF025D99EA700D3D0D7 /* CustomImageView.swift in Sources */,
 				DA46096C25D7E90900A69DD0 /* AdDetailWorker.swift in Sources */,

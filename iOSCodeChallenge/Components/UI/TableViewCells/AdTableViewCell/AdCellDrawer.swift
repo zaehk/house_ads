@@ -22,7 +22,7 @@ internal final class AdCellDrawer: CellDrawerProtocol {
             return
         }
         
-        cell.setFavoriteStatus(isFavorite: true)
+        cell.setFavoriteStatus(isFavorite: Bool.random())
         cell.setPrice(price: cellVM.price)
         cell.setRealStateDescription(adDescription: cellVM.description)
         cell.setImages(imagesURL: cellVM.imagesURL)

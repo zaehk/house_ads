@@ -40,6 +40,7 @@ class AdListViewController: UITableViewController
     
     private func setupView(){
         self.title = Literals.AdList.title
+        self.view.backgroundColor = .white
     }
     
     @objc func refresh(_ sender: AnyObject) {

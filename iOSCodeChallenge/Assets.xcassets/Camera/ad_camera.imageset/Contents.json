@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-window-favorite-25.png",
+      "filename" : "icons8-cámara-compacta-25.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-window-favorite-50.png",
+      "filename" : "icons8-cámara-compacta-50.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-window-favorite-75.png",
+      "filename" : "icons8-cámara-compacta-75.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

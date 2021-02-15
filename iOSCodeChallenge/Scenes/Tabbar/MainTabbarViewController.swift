@@ -13,7 +13,6 @@ class MainTabbarController: UITabBarController {
         super.viewDidLoad()
         
         self.tabBar.barStyle = .default
-        self.tabBar.barTintColor = Styles.Colors.idealistaMain
         self.tabBar.tintColor = .black
         self.tabBar.unselectedItemTintColor = .black
         self.tabBar.isTranslucent = false

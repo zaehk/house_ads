@@ -25,8 +25,44 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         return collectionView
     }()
     
+    private let pictureStackView : UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 10
+        return stack
+    }()
+    
+    private let cameraImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage.init(named: "ad_camera")
+        imageView.tintColor = Styles.Colors.idealistaPurple
+        return imageView
+    }()
+    
+    private let pictureNumberLabel: UILabel = {
+        let label = UILabel.init()
+        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        return label
+    }()
+    
+    private let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.borderWidth = 2
+        view.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        return view
+    }()
+    
     private let favoriteButton: UIButton = {
        let button = UIButton()
+        button.backgroundColor = Styles.Colors.idealistaMain
+        button.layer.borderWidth = 2
+        button.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
+        button.layer.cornerRadius = 15
+        button.clipsToBounds = true
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
        return button
     }()
     
@@ -47,6 +83,8 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         return label
     }()
     
+    
+    
     private var imagesCells: [CollectionDrawerItemProtocol] = []
     
     required init?(coder: NSCoder) {
@@ -60,6 +98,7 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         self.selectionStyle = .none
         setupImageCollectionView()
         setupViewsConstraints()
+        setupViews()
     }
     
     override func prepareForReuse() {
@@ -74,20 +113,18 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         self.adPicturesCollectionView.delegate = self
         self.adPicturesCollectionView.dataSource = self
     }
+    
+    // MARK: -Constraints
 
     private func setupViewsConstraints(){
-        let containerView = UIView()
-        containerView.backgroundColor = .white
-        containerView.layer.cornerRadius = 10
-        containerView.layer.masksToBounds = true
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
+        
         
         addSubview(containerView)
         containerView.addSubview(adPicturesCollectionView)
         containerView.addSubview(favoriteButton)
         containerView.addSubview(priceLabel)
         containerView.addSubview(descriptionLabel)
+        containerView.addSubview(pictureStackView)
         
         //containerview constraints
         containerView.snp.makeConstraints { (make) in
@@ -112,16 +149,33 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         //descriptionLabel constraints
         descriptionLabel.snp.makeConstraints{ (make) in
             make.top.equalTo(adPicturesCollectionView.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(20)
+            make.left.equalToSuperview().inset(20)
+            make.right.equalTo(pictureStackView).inset(15)
         }
         
         //favoritesButton constraints
         favoriteButton.snp.makeConstraints { (make) in
-            make.centerY.equalTo(descriptionLabel)
-            make.right.equalToSuperview().inset(20)
+            make.top.right.equalToSuperview().inset(20)
             make.height.width.equalTo(30)
         }
+        
+        pictureStackView.addArrangedSubview(pictureNumberLabel)
+        pictureStackView.addArrangedSubview(cameraImageView)
+        pictureStackView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(descriptionLabel)
+            make.right.equalToSuperview().inset(20)
+        }
+
     }
+    
+    private func setupViews(){
+        favoriteButton.addTarget(self, action: #selector(self.favoriteTapped), for: .touchUpInside)
+    }
+        
+    @objc private func favoriteTapped(){
+        
+    }
+    
 
     // MARK: - Draw Methods -
     
@@ -141,6 +195,7 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
     
     func setImages(imagesURL: [String]){
         self.imagesCells = imagesURL.map({ AdImageCollectionCellModel.init(url: $0)})
+        self.pictureNumberLabel.text = String(imagesCells.count)
         self.adPicturesCollectionView.reloadData()
     }
     
