@@ -64,6 +64,13 @@
 		DA8F58E325D9323B005F098D /* EmptyStateDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DF25D9323B005F098D /* EmptyStateDrawer.swift */; };
 		DAA99FB525DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */; };
 		DAA99FD425DAD8A200FBC274 /* AdTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FD325DAD8A200FBC274 /* AdTableViewCellProtocol.swift */; };
+		DAA99FE025DAE20300FBC274 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FDA25DAE20200FBC274 /* ApiEndpoints.swift */; };
+		DAA9A01625DAE67700FBC274 /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A01225DAE67700FBC274 /* ApiErrorType.swift */; };
+		DAA9A01825DAE67700FBC274 /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A01425DAE67700FBC274 /* ApiRouter.swift */; };
+		DAA9A01E25DAE67C00FBC274 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A01D25DAE67C00FBC274 /* ApiClient.swift */; };
+		DAA9A02925DAE94B00FBC274 /* ApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A02825DAE94B00FBC274 /* ApiClientProtocol.swift */; };
+		DAA9A02E25DAED4700FBC274 /* ApiParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A02D25DAED4700FBC274 /* ApiParameters.swift */; };
+		DAA9A03825DAEEB000FBC274 /* AdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A03725DAEEB000FBC274 /* AdService.swift */; };
 		DC23D39D7AFF0EE0D5F9BD4B /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +163,13 @@
 		DA8F58DF25D9323B005F098D /* EmptyStateDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateDrawer.swift; sourceTree = "<group>"; };
 		DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius+Shadow.swift"; sourceTree = "<group>"; };
 		DAA99FD325DAD8A200FBC274 /* AdTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewCellProtocol.swift; sourceTree = "<group>"; };
+		DAA99FDA25DAE20200FBC274 /* ApiEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
+		DAA9A01225DAE67700FBC274 /* ApiErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiErrorType.swift; sourceTree = "<group>"; };
+		DAA9A01425DAE67700FBC274 /* ApiRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
+		DAA9A01D25DAE67C00FBC274 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		DAA9A02825DAE94B00FBC274 /* ApiClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientProtocol.swift; sourceTree = "<group>"; };
+		DAA9A02D25DAED4700FBC274 /* ApiParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiParameters.swift; sourceTree = "<group>"; };
+		DAA9A03725DAEEB000FBC274 /* AdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdService.swift; sourceTree = "<group>"; };
 		E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD621F267E207638E0E5408D /* Pods-iOSCodeChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSCodeChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSCodeChallengeTests/Pods-iOSCodeChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,6 +277,13 @@
 		22A2D71C25C4250800E174E6 /* API Client */ = {
 			isa = PBXGroup;
 			children = (
+				DAA9A03625DAEE9C00FBC274 /* Services */,
+				DAA9A02D25DAED4700FBC274 /* ApiParameters.swift */,
+				DAA9A01225DAE67700FBC274 /* ApiErrorType.swift */,
+				DAA9A02825DAE94B00FBC274 /* ApiClientProtocol.swift */,
+				DAA9A01D25DAE67C00FBC274 /* ApiClient.swift */,
+				DAA9A01425DAE67700FBC274 /* ApiRouter.swift */,
+				DAA99FDA25DAE20200FBC274 /* ApiEndpoints.swift */,
 				22A2D71D25C4251400E174E6 /* DTOs */,
 			);
 			path = "API Client";
@@ -461,6 +482,14 @@
 				DA8F58DF25D9323B005F098D /* EmptyStateDrawer.swift */,
 			);
 			path = EmptyStateCell;
+			sourceTree = "<group>";
+		};
+		DAA9A03625DAEE9C00FBC274 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DAA9A03725DAEEB000FBC274 /* AdService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		EB878A2685826DEE8B9D12E4 /* Frameworks */ = {
@@ -723,6 +752,7 @@
 				DA46099C25D7EF0700A69DD0 /* FavoriteAdsListWorker.swift in Sources */,
 				DA46097025D7E90900A69DD0 /* AdDetailInteractor.swift in Sources */,
 				22A2D72425C425DF00E174E6 /* IDResultMultimediaDTO.swift in Sources */,
+				DAA9A01E25DAE67C00FBC274 /* ApiClient.swift in Sources */,
 				DA46099E25D7EF0700A69DD0 /* FavoriteAdsListModels.swift in Sources */,
 				DA46099B25D7EF0700A69DD0 /* FavoriteAdsListPresenter.swift in Sources */,
 				DA46099F25D7EF0700A69DD0 /* FavoriteAdsListViewController.swift in Sources */,
@@ -730,6 +760,7 @@
 				DA4609CF25D8038300A69DD0 /* AdCellModel.swift in Sources */,
 				DA46096D25D7E90900A69DD0 /* AdDetailRouter.swift in Sources */,
 				DA46096B25D7E90900A69DD0 /* AdDetailPresenter.swift in Sources */,
+				DAA9A03825DAEEB000FBC274 /* AdService.swift in Sources */,
 				DA46093525D7E42400A69DD0 /* AdListWorker.swift in Sources */,
 				DA46090625D7DAF600A69DD0 /* Literals.swift in Sources */,
 				DA46097525D7E92400A69DD0 /* AdDetailBuilder.swift in Sources */,
@@ -738,6 +769,7 @@
 				DA46098025D7EA0100A69DD0 /* MainTabbarViewController.swift in Sources */,
 				DA46093625D7E42400A69DD0 /* AdListRouter.swift in Sources */,
 				22A2D72E25C4265F00E174E6 /* IDResultsDTO.swift in Sources */,
+				DAA99FE025DAE20300FBC274 /* ApiEndpoints.swift in Sources */,
 				DA46094925D7E7CB00A69DD0 /* AdListBuilder.swift in Sources */,
 				DA46096F25D7E90900A69DD0 /* AdDetailViewController.swift in Sources */,
 				DA572FFF25D99EFE00D3D0D7 /* AdImageCollectionCell.swift in Sources */,
@@ -745,18 +777,22 @@
 				DA4609A525D7EF1600A69DD0 /* FavoriteAdsListBuilder.swift in Sources */,
 				DA4609A025D7EF0700A69DD0 /* FavoriteAdsListInteractor.swift in Sources */,
 				22A2D6AB25C4220F00E174E6 /* AppDelegate.swift in Sources */,
+				DAA9A01825DAE67700FBC274 /* ApiRouter.swift in Sources */,
 				22A2D72925C4261900E174E6 /* IDResultMultimediaImageDTO.swift in Sources */,
 				DA46090C25D7DC7C00A69DD0 /* String+Localizable.swift in Sources */,
 				22A2D71F25C4252900E174E6 /* IDResultDTO.swift in Sources */,
 				DAA99FD425DAD8A200FBC274 /* AdTableViewCellProtocol.swift in Sources */,
 				22A2D71025C4230E00E174E6 /* IDResultListTableViewController.swift in Sources */,
 				DA572FF025D99EA700D3D0D7 /* CustomImageView.swift in Sources */,
+				DAA9A02E25DAED4700FBC274 /* ApiParameters.swift in Sources */,
 				DA46096C25D7E90900A69DD0 /* AdDetailWorker.swift in Sources */,
 				DA57301625D99F4C00D3D0D7 /* CollectionViewCellProtocols.swift in Sources */,
 				DA46098825D7EE8600A69DD0 /* IDNavigationController.swift in Sources */,
+				DAA9A01625DAE67700FBC274 /* ApiErrorType.swift in Sources */,
 				DA46099D25D7EF0700A69DD0 /* FavoriteAdsListRouter.swift in Sources */,
 				22A2D73325C427A600E174E6 /* IDResultListTableViewCell.swift in Sources */,
 				DA4609D125D8038300A69DD0 /* AdCellDrawer.swift in Sources */,
+				DAA9A02925DAE94B00FBC274 /* ApiClientProtocol.swift in Sources */,
 				DA46093425D7E42400A69DD0 /* AdListPresenter.swift in Sources */,
 				DA46093825D7E42400A69DD0 /* AdListViewController.swift in Sources */,
 				DA46093925D7E42400A69DD0 /* AdListInteractor.swift in Sources */,

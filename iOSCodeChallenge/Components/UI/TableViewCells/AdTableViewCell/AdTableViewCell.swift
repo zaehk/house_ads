@@ -57,7 +57,7 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
     
     private let favoriteButton: UIButton = {
        let button = UIButton()
-        button.backgroundColor = Styles.Colors.idealistaMain
+        button.backgroundColor = .white
         button.layer.borderWidth = 2
         button.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
         button.layer.cornerRadius = 15
