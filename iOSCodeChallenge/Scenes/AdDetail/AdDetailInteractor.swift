@@ -14,28 +14,30 @@ import UIKit
 
 protocol AdDetailBusinessLogic
 {
-  func doSomething(request: AdDetail.Something.Request)
+    func doSomething(request: AdDetail.Something.Request)
 }
 
 protocol AdDetailDataStore
 {
-  //var name: String { get set }
+    var detailURL: String { get set }
 }
 
 class AdDetailInteractor: AdDetailBusinessLogic, AdDetailDataStore
 {
-  var presenter: AdDetailPresentationLogic?
-  var worker: AdDetailWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: AdDetail.Something.Request)
-  {
-    worker = AdDetailWorker()
-    worker?.doSomeWork()
+    var detailURL: String = ""
     
-    let response = AdDetail.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var presenter: AdDetailPresentationLogic?
+    var worker: AdDetailWorker?
+    //var name: String = ""
+    
+    // MARK: Do something
+    
+    func doSomething(request: AdDetail.Something.Request)
+    {
+        worker = AdDetailWorker()
+        worker?.doSomeWork()
+        
+        let response = AdDetail.Something.Response()
+        presenter?.presentSomething(response: response)
+    }
 }

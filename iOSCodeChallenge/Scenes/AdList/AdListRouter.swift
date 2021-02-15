@@ -15,10 +15,14 @@ import UIKit
 protocol AdListDataPassing
 {
     var dataStore: AdListDataStore? { get }
+    
+    func passDataToAdDetail(index: Int, source: AdListDataStore, destination: inout AdDetailDataStore)
 }
 
 class AdListRouter: NSObject, AdListRoutingLogic, AdListDataPassing
 {
+
+    
     
     weak var viewController: AdListViewController?
     var dataStore: AdListDataStore?
@@ -27,22 +31,13 @@ class AdListRouter: NSObject, AdListRoutingLogic, AdListDataPassing
     func navigateToAdDetail(adIndex: Int) {
         let adDetailVC = AdDetailBuilder.viewController()
         if var adDetailDS = adDetailVC.router?.dataStore, let adListDataStore = dataStore {
-            
+            passDataToAdDetail(index: adIndex, source: adListDataStore, destination: &adDetailDS)
         }
+        viewController?.navigationController?.pushViewController(adDetailVC, animated: true)
     }
     
-    
-    // MARK: Navigation
-    
-    //func navigateToSomewhere(source: AdListViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: AdListDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    func passDataToAdDetail(index: Int, source: AdListDataStore, destination: inout AdDetailDataStore) {
+        destination.detailURL = source.realStateAdsResults[index].detailUrl ?? ""
+    }
+
 }
