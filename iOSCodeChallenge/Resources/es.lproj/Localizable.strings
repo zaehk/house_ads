@@ -30,3 +30,6 @@
 //empty states
 "empty_state_favorites" = "No se añadió ningún favorito\nCuando encuentres un anuncio que te guste, pulsa en el icono de favorito para verlo aquí";
 "empty_state_adList" = "No hay anuncios para mostrar\nRefresca la pantalla para ver si hay novedades";
+
+
+"price_month" = "/Mes";

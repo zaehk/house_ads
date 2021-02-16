@@ -16,9 +16,10 @@ struct AdDetailViewModel {
     
     let description: String
     let imagesCells: [CollectionDrawerItemProtocol]
-    let price: String
+    var price: String = ""
     let isFavorite: Bool
     let property: Property?
+    let transaction: TransactionTipology?
     
     
     init(idDetailDTO: IDDetailDTO, isFavorite: Bool){
@@ -27,14 +28,17 @@ struct AdDetailViewModel {
         //create cellModels for images
         let images = idDetailDTO.multimedia?.images.map({$0.url ?? ""}) ?? []
         self.imagesCells = images.map({AdImageCollectionCellModel.init(url: $0)})
+        self.property = Property.init(rawValue: idDetailDTO.extendedPropertyType ?? "")
+        self.transaction = TransactionTipology.init(rawValue: idDetailDTO.operation ?? "")
         
         if let safePrice = idDetailDTO.price {
             self.price = "\(safePrice)€"
-        }else {
-            self.price = ""
+            if transaction == .rent {
+                self.price.append(Literals.Common.priceMonth)
+            }
         }
+        
         self.isFavorite = isFavorite
-        self.property = Property.init(rawValue: idDetailDTO.extendedPropertyType ?? "")
     }
     
     

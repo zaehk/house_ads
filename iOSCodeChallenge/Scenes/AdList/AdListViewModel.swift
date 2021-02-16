@@ -36,6 +36,9 @@ internal struct AdViewModel {
         
         if let safePrice = listDTO.price {
             self.price = "\(safePrice)€"
+            if transaction == .rent {
+                price.append(Literals.Common.priceMonth)
+            }
         }
         
         if let safeThumbnail = listDTO.thumbnail{

@@ -37,6 +37,7 @@ struct Literals {
     
     struct Common {
         static let refreshControlDescription = "refresh_description".localized()
+        static let priceMonth = "price_month".localized()
     }
     
     struct EmptyState{
