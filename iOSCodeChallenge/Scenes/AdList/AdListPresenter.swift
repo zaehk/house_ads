@@ -46,9 +46,8 @@ class AdListPresenter: AdListPresentationLogic
     }
     
     func presentErrorFetchingRealStateAds() {
-        //create error empty state view
-        
-        //viewcontroller.showEmptyState()
+        //add error state
+        presentEmptyState()
     }
     
 }

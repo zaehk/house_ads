@@ -14,7 +14,7 @@ import UIKit
 
 protocol AdDetailPresentationLogic
 {
-    func presentAdDetail(IDDetailDTO: IDDetailDTO)
+    func presentAdDetail(idDetailDTO: IDDetailDTO)
     func presentError()
 }
 
@@ -23,11 +23,12 @@ class AdDetailPresenter: AdDetailPresentationLogic
     
     weak var viewController: AdDetailDisplayLogic?
     
-    func presentAdDetail(IDDetailDTO: IDDetailDTO) {
-        print("service working")
+    func presentAdDetail(idDetailDTO: IDDetailDTO) {
+        let viewModel = AdDetailViewModel.init(idDetailDTO: idDetailDTO, isFavorite: Bool.random())
+        viewController?.showAdDetail(viewModel: viewModel)
     }
     
     func presentError() {
-        
+        viewController?.showAdDetailError()
     }
 }

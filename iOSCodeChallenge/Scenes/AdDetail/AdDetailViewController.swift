@@ -14,31 +14,146 @@ import UIKit
 
 protocol AdDetailDisplayLogic: class
 {
-    
+    func showAdDetail(viewModel: AdDetailViewModel)
+    func showAdDetailError()
 }
 
-class AdDetailViewController: UIViewController, AdDetailDisplayLogic
+class AdDetailViewController: UIViewController
 {
     var interactor: AdDetailBusinessLogic?
     var router: (NSObjectProtocol & AdDetailRoutingLogic & AdDetailDataPassing)?
+    var picturesCells: [CollectionDrawerItemProtocol] = []
     
+    // MARK: -Views-
+    
+    private let adPicturesCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0;
+        layout.minimumLineSpacing = 0;
+        let collectionView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = true
+        collectionView.indicatorStyle = .white
+        collectionView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        collectionView.isPagingEnabled = true
+        return collectionView
+    }()
+    
+    private let descriptionTextView: UITextView = {
+        let textView = UITextView()
+        textView.textColor = .black
+        textView.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        textView.isScrollEnabled = true
+        textView.isEditable = false
+        textView.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
+        return textView
+    }()
+    
+    private let priceLabel: UILabel = PriceLabel()
+    private let favoriteButton: FavoriteButton = FavoriteButton()
     
     // MARK: View lifecycle
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        setupViews()
+        setupCollectionView()
+        setupConstraints()
         fetchAdDetail()
     }
     
-    // MARK: Do something
+    private func setupViews(){
+        self.view.backgroundColor = .white
+        self.navigationItem.largeTitleDisplayMode = .never
+    }
     
-    //@IBOutlet weak var nameTextField: UITextField!
+    private func setupCollectionView(){
+        self.adPicturesCollectionView.delegate = self
+        self.adPicturesCollectionView.dataSource = self
+    }
     
+    private func setupConstraints(){
+        self.view.addSubview(adPicturesCollectionView)
+        self.view.addSubview(priceLabel)
+        self.view.addSubview(descriptionTextView)
+        self.view.addSubview(favoriteButton)
+        
+        adPicturesCollectionView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.height.equalTo(250)
+        }
+        
+        priceLabel.snp.makeConstraints({
+            $0.top.equalTo(adPicturesCollectionView.snp.bottom).offset(10)
+            $0.left.equalToSuperview().inset(20)
+        })
+        
+        descriptionTextView.snp.makeConstraints({
+            $0.left.right.equalToSuperview().inset(20)
+            $0.top.equalTo(priceLabel.snp.bottom).offset(5)
+            $0.bottom.equalToSuperview().inset(20)
+        })
+        
+        favoriteButton.snp.makeConstraints({
+            $0.centerY.equalTo(priceLabel)
+            $0.right.equalToSuperview().inset(20)
+            $0.width.height.equalTo(30)
+        })
+        
+    }
+
     func fetchAdDetail()
     {
         interactor?.fetchAdDetail()
     }
     
+}
+
+//MARK: -Display logic
+
+extension AdDetailViewController: AdDetailDisplayLogic {
+    
+    func showAdDetailError() {
+        let alert = UIAlertController.init(title: nil, message: "Hubo un error descargando los datos del anuncio", preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Salir", style: .default, handler: { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }))
+    }
+    
+    func showAdDetail(viewModel: AdDetailViewModel) {
+        self.descriptionTextView.text = viewModel.description
+        self.priceLabel.text = viewModel.price
+        self.favoriteButton.isFavorite(favorite: viewModel.isFavorite)
+        self.picturesCells = viewModel.imagesCells
+        adPicturesCollectionView.reloadData()
+    }
+    
+}
+
+
+
+
+//MARK: -CollectionView management
+
+extension AdDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        picturesCells.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let model = picturesCells[indexPath.row]
+        let drawer = model.collectionDrawer
+        let cell = drawer.dequeueCollectionCell(collectionView, indexPath: indexPath)
+        drawer.drawCollectionCell(cell, withItem: model)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        adPicturesCollectionView.frame.size
+    }
     
 }

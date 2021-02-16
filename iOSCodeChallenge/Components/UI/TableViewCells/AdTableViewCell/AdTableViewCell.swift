@@ -45,35 +45,10 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         return label
     }()
     
-    private let containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = Styles.Colors.idealistaMain.withAlphaComponent(0.1)
-        view.layer.borderWidth = 2
-        view.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
-        view.layer.cornerRadius = 10
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    private let favoriteButton: UIButton = {
-       let button = UIButton()
-        button.backgroundColor = .white
-        button.layer.borderWidth = 2
-        button.layer.borderColor = Styles.Colors.idealistaPurple.cgColor
-        button.layer.cornerRadius = 15
-        button.clipsToBounds = true
-        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-       return button
-    }()
-    
-    private let priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-        label.textColor = Styles.Colors.idealistaPurple
-        label.numberOfLines = 1
-        label.textAlignment = .left
-        return label
-    }()
+    //Reusable views 
+    private let containerView = PurpleRoundedContainer()
+    private let favoriteButton = FavoriteButton()
+    private let priceLabel = PriceLabel()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -141,15 +116,15 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         
         //priceLabel constraints
         priceLabel.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().inset(20)
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
-            make.bottom.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview().inset(15)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(5)
+            make.bottom.equalToSuperview().inset(10)
         }
         
         //descriptionLabel constraints
         descriptionLabel.snp.makeConstraints{ (make) in
             make.top.equalTo(adPicturesCollectionView.snp.bottom).offset(10)
-            make.left.equalToSuperview().inset(20)
+            make.left.equalToSuperview().inset(15)
             make.right.equalTo(pictureStackView).inset(15)
         }
         
@@ -181,8 +156,7 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
     
 
     func setFavoriteStatus(isFavorite: Bool){
-        favoriteButton.setImage(isFavorite ? UIImage.init(named: "filled_favorite") : UIImage.init(named: "blank_favorite"), for: .normal)
-        favoriteButton.tintColor = .red
+        favoriteButton.isFavorite(favorite: isFavorite)
     }
     
     func setPrice(price: String){

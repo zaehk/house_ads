@@ -35,7 +35,7 @@ class AdDetailInteractor: AdDetailBusinessLogic, AdDetailDataStore
 
     func fetchAdDetail() {
         adService?.fetchAdDetail(adURL: detailURL, success: { [weak self] (detailDTO) in
-            self?.presenter?.presentAdDetail(IDDetailDTO: detailDTO)
+            self?.presenter?.presentAdDetail(idDetailDTO: detailDTO)
         }, failure: { [weak self] (error) in
             self?.presenter?.presentError()
         })
