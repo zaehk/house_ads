@@ -50,7 +50,7 @@ class AdDetailViewController: UIViewController
         return textView
     }()
     
-    private let priceLabel: UILabel = PriceLabel()
+    private let priceLabel: PriceLabel = PriceLabel()
     private let favoriteButton: FavoriteButton = FavoriteButton()
     
     // MARK: View lifecycle

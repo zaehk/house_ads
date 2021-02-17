@@ -18,9 +18,7 @@ class AdListPresenter: AdListPresentationLogic
 {
     
     weak var viewController: AdListDisplayLogic?
-    
-    // MARK: Do something
-    
+        
     func presentRealStateAds(response: [(adListResult:IDResultDTO, isFavorite:Bool)]) {
         
         if response.isEmpty {

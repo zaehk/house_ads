@@ -59,6 +59,7 @@
 		DA5C0F5825DC4D0200799B1F /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C0F5725DC4D0200799B1F /* PriceLabel.swift */; };
 		DA5C0F5E25DC4E5300799B1F /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C0F5D25DC4E5300799B1F /* FavoriteButton.swift */; };
 		DA5C0F6425DC4F3700799B1F /* PurpleRoundedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C0F6325DC4F3700799B1F /* PurpleRoundedContainer.swift */; };
+		DA5C0F8025DC591D00799B1F /* iOSCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA5C0F7E25DC591D00799B1F /* iOSCodeChallenge.xcdatamodeld */; };
 		DA8F58CC25D92658005F098D /* AdListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58CB25D92658005F098D /* AdListViewModel.swift */; };
 		DA8F58E025D9323B005F098D /* EmptyStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DC25D9323B005F098D /* EmptyStateCell.swift */; };
 		DA8F58E125D9323B005F098D /* EmptyStateCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DD25D9323B005F098D /* EmptyStateCellModel.swift */; };
@@ -73,6 +74,12 @@
 		DAA9A02E25DAED4700FBC274 /* ApiParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A02D25DAED4700FBC274 /* ApiParameters.swift */; };
 		DAA9A03825DAEEB000FBC274 /* AdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A03725DAEEB000FBC274 /* AdService.swift */; };
 		DAA9A04225DAFD2800FBC274 /* IDDetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A04125DAFD2800FBC274 /* IDDetailDTO.swift */; };
+		DABC43D625DCFAE00007C6D1 /* PersistenceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC43D525DCFAE00007C6D1 /* PersistenceClient.swift */; };
+		DABC43DB25DCFB050007C6D1 /* PersistenceBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC43DA25DCFB050007C6D1 /* PersistenceBinding.swift */; };
+		DABC43E025DCFB310007C6D1 /* PersistenceClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC43DF25DCFB310007C6D1 /* PersistenceClientProtocol.swift */; };
+		DABC43E525DCFB5D0007C6D1 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC43E425DCFB5D0007C6D1 /* PersistenceError.swift */; };
+		DABC43EF25DCFCAA0007C6D1 /* PersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC43EE25DCFCAA0007C6D1 /* PersistenceStore.swift */; };
+		DABC443025DD92D60007C6D1 /* AdLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC442F25DD92D60007C6D1 /* AdLocalService.swift */; };
 		DC23D39D7AFF0EE0D5F9BD4B /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +167,7 @@
 		DA5C0F5725DC4D0200799B1F /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
 		DA5C0F5D25DC4E5300799B1F /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		DA5C0F6325DC4F3700799B1F /* PurpleRoundedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleRoundedContainer.swift; sourceTree = "<group>"; };
+		DA5C0F7F25DC591D00799B1F /* FavoriteAd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteAd.xcdatamodel; sourceTree = "<group>"; };
 		DA8F58CB25D92658005F098D /* AdListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListViewModel.swift; sourceTree = "<group>"; };
 		DA8F58DC25D9323B005F098D /* EmptyStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCell.swift; sourceTree = "<group>"; };
 		DA8F58DD25D9323B005F098D /* EmptyStateCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCellModel.swift; sourceTree = "<group>"; };
@@ -174,6 +182,12 @@
 		DAA9A02D25DAED4700FBC274 /* ApiParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiParameters.swift; sourceTree = "<group>"; };
 		DAA9A03725DAEEB000FBC274 /* AdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdService.swift; sourceTree = "<group>"; };
 		DAA9A04125DAFD2800FBC274 /* IDDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDDetailDTO.swift; sourceTree = "<group>"; };
+		DABC43D525DCFAE00007C6D1 /* PersistenceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceClient.swift; sourceTree = "<group>"; };
+		DABC43DA25DCFB050007C6D1 /* PersistenceBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceBinding.swift; sourceTree = "<group>"; };
+		DABC43DF25DCFB310007C6D1 /* PersistenceClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceClientProtocol.swift; sourceTree = "<group>"; };
+		DABC43E425DCFB5D0007C6D1 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
+		DABC43EE25DCFCAA0007C6D1 /* PersistenceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStore.swift; sourceTree = "<group>"; };
+		DABC442F25DD92D60007C6D1 /* AdLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLocalService.swift; sourceTree = "<group>"; };
 		E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD621F267E207638E0E5408D /* Pods-iOSCodeChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSCodeChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSCodeChallengeTests/Pods-iOSCodeChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +250,7 @@
 				DA46098425D7EE5700A69DD0 /* Components */,
 				DA46091325D7DCBF00A69DD0 /* Resources */,
 				DA46090A25D7DC7200A69DD0 /* Extensions */,
+				DA5C0F7D25DC58D600799B1F /* Persistence Client */,
 				22A2D71C25C4250800E174E6 /* API Client */,
 				22A2D70D25C422D500E174E6 /* List */,
 				22A2D6AA25C4220F00E174E6 /* AppDelegate.swift */,
@@ -503,6 +518,20 @@
 			path = UIviews;
 			sourceTree = "<group>";
 		};
+		DA5C0F7D25DC58D600799B1F /* Persistence Client */ = {
+			isa = PBXGroup;
+			children = (
+				DABC442E25DD92BD0007C6D1 /* Services */,
+				DA5C0F7E25DC591D00799B1F /* iOSCodeChallenge.xcdatamodeld */,
+				DABC43D525DCFAE00007C6D1 /* PersistenceClient.swift */,
+				DABC43DA25DCFB050007C6D1 /* PersistenceBinding.swift */,
+				DABC43DF25DCFB310007C6D1 /* PersistenceClientProtocol.swift */,
+				DABC43E425DCFB5D0007C6D1 /* PersistenceError.swift */,
+				DABC43EE25DCFCAA0007C6D1 /* PersistenceStore.swift */,
+			);
+			path = "Persistence Client";
+			sourceTree = "<group>";
+		};
 		DA8F58D325D9321B005F098D /* EmptyStateCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +565,14 @@
 				DAA9A04125DAFD2800FBC274 /* IDDetailDTO.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		DABC442E25DD92BD0007C6D1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DABC442F25DD92D60007C6D1 /* AdLocalService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		EB878A2685826DEE8B9D12E4 /* Frameworks */ = {
@@ -792,6 +829,8 @@
 				DA8F58E125D9323B005F098D /* EmptyStateCellModel.swift in Sources */,
 				DAA99FB525DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift in Sources */,
 				DA4609AA25D7F65800A69DD0 /* Styles.swift in Sources */,
+				DABC43EF25DCFCAA0007C6D1 /* PersistenceStore.swift in Sources */,
+				DABC43DB25DCFB050007C6D1 /* PersistenceBinding.swift in Sources */,
 				DA4609ED25D80ECA00A69DD0 /* IDEnums.swift in Sources */,
 				DA8F58E025D9323B005F098D /* EmptyStateCell.swift in Sources */,
 				DA46096E25D7E90900A69DD0 /* AdDetailViewModel.swift in Sources */,
@@ -803,6 +842,7 @@
 				DA46099E25D7EF0700A69DD0 /* FavoriteAdsListModels.swift in Sources */,
 				DA5C0F5E25DC4E5300799B1F /* FavoriteButton.swift in Sources */,
 				DAA9A04225DAFD2800FBC274 /* IDDetailDTO.swift in Sources */,
+				DABC443025DD92D60007C6D1 /* AdLocalService.swift in Sources */,
 				DA5C0F5825DC4D0200799B1F /* PriceLabel.swift in Sources */,
 				DA46099B25D7EF0700A69DD0 /* FavoriteAdsListPresenter.swift in Sources */,
 				DA46099F25D7EF0700A69DD0 /* FavoriteAdsListViewController.swift in Sources */,
@@ -822,13 +862,16 @@
 				DA46094925D7E7CB00A69DD0 /* AdListBuilder.swift in Sources */,
 				DA46096F25D7E90900A69DD0 /* AdDetailViewController.swift in Sources */,
 				DA572FFF25D99EFE00D3D0D7 /* AdImageCollectionCell.swift in Sources */,
+				DABC43E025DCFB310007C6D1 /* PersistenceClientProtocol.swift in Sources */,
 				DA57300025D99EFE00D3D0D7 /* AdImageCollectionCellModel.swift in Sources */,
 				DA4609A525D7EF1600A69DD0 /* FavoriteAdsListBuilder.swift in Sources */,
 				DA4609A025D7EF0700A69DD0 /* FavoriteAdsListInteractor.swift in Sources */,
+				DABC43D625DCFAE00007C6D1 /* PersistenceClient.swift in Sources */,
 				22A2D6AB25C4220F00E174E6 /* AppDelegate.swift in Sources */,
 				DAA9A01825DAE67700FBC274 /* ApiRouter.swift in Sources */,
 				22A2D72925C4261900E174E6 /* IDResultMultimediaImageDTO.swift in Sources */,
 				DA46090C25D7DC7C00A69DD0 /* String+Localizable.swift in Sources */,
+				DA5C0F8025DC591D00799B1F /* iOSCodeChallenge.xcdatamodeld in Sources */,
 				22A2D71F25C4252900E174E6 /* IDResultDTO.swift in Sources */,
 				DAA99FD425DAD8A200FBC274 /* AdTableViewCellProtocol.swift in Sources */,
 				22A2D71025C4230E00E174E6 /* IDResultListTableViewController.swift in Sources */,
@@ -841,6 +884,7 @@
 				22A2D73325C427A600E174E6 /* IDResultListTableViewCell.swift in Sources */,
 				DA4609D125D8038300A69DD0 /* AdCellDrawer.swift in Sources */,
 				DAA9A02925DAE94B00FBC274 /* ApiClientProtocol.swift in Sources */,
+				DABC43E525DCFB5D0007C6D1 /* PersistenceError.swift in Sources */,
 				DA46093425D7E42400A69DD0 /* AdListPresenter.swift in Sources */,
 				DA46093825D7E42400A69DD0 /* AdListViewController.swift in Sources */,
 				DA46093925D7E42400A69DD0 /* AdListInteractor.swift in Sources */,
@@ -1184,6 +1228,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA5C0F7E25DC591D00799B1F /* iOSCodeChallenge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA5C0F7F25DC591D00799B1F /* FavoriteAd.xcdatamodel */,
+			);
+			currentVersion = DA5C0F7F25DC591D00799B1F /* FavoriteAd.xcdatamodel */;
+			path = iOSCodeChallenge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 22A2D69F25C4220F00E174E6 /* Project object */;
 }

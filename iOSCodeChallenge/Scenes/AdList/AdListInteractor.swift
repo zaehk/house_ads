@@ -31,10 +31,17 @@ class AdListInteractor: AdListBusinessLogic, AdListDataStore
     func fetchRealStateAds() {
         adService?.fetchAdList(success: { [weak self] (adsResult) in
             self?.realStateAdsResults = adsResult.elementList
+            
+            
+            
             self?.presenter?.presentRealStateAds(response: adsResult.elementList.map({return ($0,true)}))
         }, failure: { [weak self] (error) in
             self?.presenter?.presentErrorFetchingRealStateAds()
         })
+    }
+    
+    private func fetchIsFavorite() {
+        
     }
     
 }

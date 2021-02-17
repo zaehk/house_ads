@@ -30,5 +30,4 @@ class AdService: AdServiceProtocol {
         apiClient.makeRequest(route: ApiRouter.adDetail(url: adURL), responseModel: IDDetailDTO.self, success: success, failed: failure)
     }
     
-    
 }

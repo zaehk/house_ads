@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -16,5 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         
     }
+    
+    // MARK: - Core Data stack
+    lazy var persistentContainer: NSPersistentContainer? = {
+        let container = NSPersistentContainer(name: "iOSCodeChallenge")
+        var persistentStoreError: NSError?
+        container.loadPersistentStores(completionHandler: { storeDescription, error in
+            if let error = error as NSError? {
+                    persistentStoreError = error
+            }
+        })
+        return persistentStoreError == nil ? container : nil
+    }()
+
+    // MARK: - Core Data Saving support
+    func saveContext () {
+        if let context = persistentContainer?.viewContext,
+            context.hasChanges {
+                try? context.save()
+        }
+    }
+    
+    
 }
 
