@@ -23,9 +23,11 @@ class AdListInteractor: AdListBusinessLogic, AdListDataStore
 
     var presenter: AdListPresentationLogic?
     var adService: AdServiceProtocol?
+    var adLocalService: AdLocalServiceProtocol?
     
-    init(adService: AdServiceProtocol = AdService()){
+    init(adService: AdServiceProtocol = AdService(), adLocalService: AdLocalServiceProtocol = AdLocalService()){
         self.adService = adService
+        self.adLocalService = adLocalService
     }
     
     func fetchRealStateAds() {
@@ -40,8 +42,21 @@ class AdListInteractor: AdListBusinessLogic, AdListDataStore
         })
     }
     
-    private func fetchIsFavorite() {
-        
+    private func fetchFavoriteStatusFromLocalDB(responseModels: [IDResultDTO]) {
+            
+        var resultsWithFavoriteStatus: [(IDResultDTO,Bool)] = []
+  
+        DispatchQueue.global().async {
+            DispatchQueue.concurrentPerform(iterations: responseModels.count) { [weak self] (index) in
+                self?.adLocalService?.fetchFavorite(adId: responseModels[index].propertyCode ?? "", success: {
+                    resultsWithFavoriteStatus.append((responseModels[index],true))
+                }, failure: { (error) in
+                    //we can check type of error..
+                    resultsWithFavoriteStatus.append((responseModels[index],false))
+                })
+            }
+            self.presenter?.presentRealStateAds(response: resultsWithFavoriteStatus)
+        }
     }
     
 }

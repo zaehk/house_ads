@@ -20,6 +20,8 @@ protocol AdLocalServiceProtocol: LocalServiceProtocol{
     
     func toggleFavoriteStatus(success: @escaping(LocalFavoriteOperationResult)->(), failure: @escaping(PersistenceError)-> ())
     
+    func fetchFavorite(adId: String, success: @escaping () -> (), failure: @escaping (PersistenceError) -> ())
+    
 }
 
 class AdLocalService: AdLocalServiceProtocol {
@@ -58,15 +60,16 @@ class AdLocalService: AdLocalServiceProtocol {
     
     // MARK: - Fetch by Id
     
-    private func fetchFavorite(adId: String, success: @escaping (FavoriteAdDB) -> (), failure: @escaping (PersistenceError) -> ()) throws {
+    func fetchFavorite(adId: String, success: @escaping () -> (), failure: @escaping (PersistenceError) -> ()) {
         guard let context = PersistenceStore.managedObjectContext else {
-            throw PersistenceError.managedObjectContextNotFound
+            failure(PersistenceError.managedObjectContextNotFound)
+            return
         }
         let request: NSFetchRequest<FavoriteAdDB> = NSFetchRequest(entityName: String(describing: FavoriteAdDB.self))
         request.predicate = NSPredicate.init(format: equalsIdPredicate, adId)
 
-        if let favorite = try? context.fetch(request).first {
-            success(favorite)
+        if (try? context.fetch(request).first) != nil {
+            success()
         }else{
             failure(PersistenceError.objectNotFound)
         }
