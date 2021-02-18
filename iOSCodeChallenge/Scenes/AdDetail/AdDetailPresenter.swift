@@ -14,8 +14,9 @@ import UIKit
 
 protocol AdDetailPresentationLogic
 {
-    func presentAdDetail(idDetailDTO: IDDetailDTO)
+    func presentAdDetail(idDetailDTO: IDDetailDTO, isFavorite: Bool)
     func presentError()
+    func presentFavoriteError()
 }
 
 class AdDetailPresenter: AdDetailPresentationLogic
@@ -23,12 +24,16 @@ class AdDetailPresenter: AdDetailPresentationLogic
     
     weak var viewController: AdDetailDisplayLogic?
     
-    func presentAdDetail(idDetailDTO: IDDetailDTO) {
-        let viewModel = AdDetailViewModel.init(idDetailDTO: idDetailDTO, isFavorite: Bool.random())
+    func presentAdDetail(idDetailDTO: IDDetailDTO, isFavorite: Bool) {
+        let viewModel = AdDetailViewModel.init(idDetailDTO: idDetailDTO, isFavorite: isFavorite)
         viewController?.showAdDetail(viewModel: viewModel)
     }
     
     func presentError() {
         viewController?.showAdDetailError()
+    }
+    
+    func presentFavoriteError() {
+        viewController?.showFavoriteError()
     }
 }

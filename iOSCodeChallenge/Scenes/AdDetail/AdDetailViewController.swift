@@ -16,6 +16,7 @@ protocol AdDetailDisplayLogic: class
 {
     func showAdDetail(viewModel: AdDetailViewModel)
     func showAdDetailError()
+    func showFavoriteError()
 }
 
 class AdDetailViewController: UIViewController
@@ -67,6 +68,7 @@ class AdDetailViewController: UIViewController
     private func setupViews(){
         self.view.backgroundColor = .white
         self.navigationItem.largeTitleDisplayMode = .never
+        self.favoriteButton.addTarget(self, action: #selector(self.favoriteTapped), for: .touchUpInside)
     }
     
     private func setupCollectionView(){
@@ -110,11 +112,20 @@ class AdDetailViewController: UIViewController
         interactor?.fetchAdDetail()
     }
     
+    @objc private func favoriteTapped(){
+        interactor?.toggleFavoriteStatus()
+    }
+    
 }
 
 //MARK: -Display logic
 
 extension AdDetailViewController: AdDetailDisplayLogic {
+    
+    func showFavoriteError() {
+        let alert = UIAlertController.init(title: "Error", message: "No se pudo guardar el cambio de favoritos", preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Aceptar", style: .default, handler: nil))
+    }
     
     func showAdDetailError() {
         let alert = UIAlertController.init(title: nil, message: "Hubo un error descargando los datos del anuncio", preferredStyle: .alert)
@@ -123,12 +134,14 @@ extension AdDetailViewController: AdDetailDisplayLogic {
         }))
     }
     
+    
+    
     func showAdDetail(viewModel: AdDetailViewModel) {
         self.descriptionTextView.text = viewModel.description
         self.priceLabel.text = viewModel.price
         self.favoriteButton.isFavorite(favorite: viewModel.isFavorite)
         self.picturesCells = viewModel.imagesCells
-        adPicturesCollectionView.reloadData()
+        self.adPicturesCollectionView.reloadData()
     }
     
 }

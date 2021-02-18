@@ -29,6 +29,10 @@ class AdListViewController: UITableViewController
         super.viewDidLoad()
         setupView()
         setupTableSettings()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         getRealStateAds(showSpinner: true)
     }
     

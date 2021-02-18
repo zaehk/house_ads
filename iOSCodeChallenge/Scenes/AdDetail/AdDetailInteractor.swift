@@ -15,29 +15,59 @@ import UIKit
 protocol AdDetailBusinessLogic
 {
     func fetchAdDetail()
+    func toggleFavoriteStatus()
 }
 
 protocol AdDetailDataStore
 {
-    var detailURL: String { get set }
+    //model from the previous list
+    var idResultDTO: IDResultDTO? { get set }
+    //detail model
+    var idDetailDTO: IDDetailDTO? { get set }
 }
 
 class AdDetailInteractor: AdDetailBusinessLogic, AdDetailDataStore
 {
     
-    var detailURL: String = ""
+    var idResultDTO: IDResultDTO?
+    var idDetailDTO: IDDetailDTO?
+    
     var presenter: AdDetailPresentationLogic?
     var adService: AdServiceProtocol?
+    var adLocalService: AdLocalServiceProtocol?
     
-    init(adService: AdServiceProtocol = AdService()){
+    init(adService: AdServiceProtocol = AdService(), adLocalService: AdLocalServiceProtocol = AdLocalService()){
         self.adService = adService
+        self.adLocalService = adLocalService
     }
 
     func fetchAdDetail() {
-        adService?.fetchAdDetail(adURL: detailURL, success: { [weak self] (detailDTO) in
-            self?.presenter?.presentAdDetail(idDetailDTO: detailDTO)
-        }, failure: { [weak self] (error) in
-            self?.presenter?.presentError()
+        if let detailURL = idResultDTO?.detailUrl {
+            adService?.fetchAdDetail(adURL: detailURL, success: { [weak self] (detailDTO) in
+                self?.idDetailDTO = detailDTO
+                self?.checkAdFavoriteStatus(idDetailDTO: detailDTO)
+            }, failure: { [weak self] (error) in
+                self?.presenter?.presentError()
+            })
+        }
+    }
+    
+    func checkAdFavoriteStatus(idDetailDTO: IDDetailDTO) {
+        adLocalService?.checkIfIsFavorite(adId: idDetailDTO.adid ?? "", success: {
+            self.presenter?.presentAdDetail(idDetailDTO: idDetailDTO, isFavorite: true)
+        }, failure: { (persistenceError) in
+            self.presenter?.presentAdDetail(idDetailDTO: idDetailDTO, isFavorite: false)
         })
+    }
+    
+    func toggleFavoriteStatus() {
+        
+        if let safeResult = idResultDTO, let safeDetailDTO = idDetailDTO {
+            adLocalService?.toggleFavoriteStatus(idResultDTO: safeResult, success: { [weak self] (newStatus) in
+                self?.presenter?.presentAdDetail(idDetailDTO: safeDetailDTO, isFavorite: newStatus)
+            }, failure: { [weak self](persistenceError) in
+                self?.presenter?.presentFavoriteError()
+            })
+        }
     }
 }

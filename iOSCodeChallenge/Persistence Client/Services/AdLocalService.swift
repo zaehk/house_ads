@@ -15,7 +15,7 @@ protocol AdLocalServiceProtocol: LocalServiceProtocol{
     
     func toggleFavoriteStatus(idResultDTO: IDResultDTO, success: @escaping(_ isFavoriteAfterToggle: Bool)->(), failure: @escaping(PersistenceError)-> ())
     
-    func fetchFavorite(adId: String, success: @escaping () -> (), failure: @escaping (PersistenceError) -> ())
+    func checkIfIsFavorite(adId: String, success: @escaping () -> (), failure: @escaping (PersistenceError) -> ())
     
 }
 
@@ -37,7 +37,7 @@ class AdLocalService: AdLocalServiceProtocol {
     
     func toggleFavoriteStatus(idResultDTO: IDResultDTO, success: @escaping(_ isFavoriteAfterToggle: Bool)->(), failure: @escaping(PersistenceError)-> ()) {
         
-        fetchFavorite(adId: idResultDTO.propertyCode ?? "") {
+        checkIfIsFavorite(adId: idResultDTO.propertyCode ?? "") {
             do {
                 try self.deleteFavorite(adId: idResultDTO.propertyCode ?? "")
                 success(false)
@@ -71,7 +71,7 @@ class AdLocalService: AdLocalServiceProtocol {
     
     // MARK: - Fetch by Id
     
-    func fetchFavorite(adId: String, success: @escaping () -> (), failure: @escaping (PersistenceError) -> ()) {
+    func checkIfIsFavorite(adId: String, success: @escaping () -> (), failure: @escaping (PersistenceError) -> ()) {
         guard let context = PersistenceStore.managedObjectContext else {
             failure(PersistenceError.managedObjectContextNotFound)
             return

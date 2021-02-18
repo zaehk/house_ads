@@ -55,7 +55,7 @@ class AdListInteractor: AdListBusinessLogic, AdListDataStore
         var resultsWithFavoriteStatus: [(IDResultDTO,Bool)] = []
         
         for responseModel in responseModels {
-            self.adLocalService?.fetchFavorite(adId: responseModel.propertyCode ?? "", success: {
+            self.adLocalService?.checkIfIsFavorite(adId: responseModel.propertyCode ?? "", success: {
                 resultsWithFavoriteStatus.append((responseModel,true))
             }, failure: { (error) in
                 resultsWithFavoriteStatus.append((responseModel,false))

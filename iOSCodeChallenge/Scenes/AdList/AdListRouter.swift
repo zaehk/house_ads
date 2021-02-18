@@ -35,7 +35,7 @@ class AdListRouter: NSObject, AdListRoutingLogic, AdListDataPassing
     }
     
     func passDataToAdDetail(index: Int, source: AdListDataStore, destination: inout AdDetailDataStore) {
-        destination.detailURL = source.realStateAdsResults[index].detailUrl ?? ""
+        destination.idResultDTO = source.realStateAdsResults[index]
     }
 
 }
