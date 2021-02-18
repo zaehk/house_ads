@@ -17,8 +17,8 @@ internal final class AdCellDrawer: CellDrawerProtocol {
     
     //Draw logic
     
-    func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any? = nil, at indexPath: IndexPath? = nil) {
-        guard let cell = cell as? AdTableViewCell, let cellVM = item as? AdCellModel else {
+    func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any? = nil, at indexPath: IndexPath) {
+        guard let cell = cell as? AdTableViewCell, let cellVM = item as? AdCellModel, let delegate = delegate as? AdTableViewCellFavoriteProtocol else {
             return
         }
         
@@ -26,6 +26,8 @@ internal final class AdCellDrawer: CellDrawerProtocol {
         cell.setPrice(price: cellVM.price)
         cell.setRealStateDescription(adDescription: cellVM.description)
         cell.setImages(imagesURL: cellVM.imagesURL)
+        cell.setDelegate(delegate: delegate)
+        cell.setCellIndex(index: indexPath.row)
     }
 }
 

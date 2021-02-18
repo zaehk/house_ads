@@ -13,7 +13,7 @@ internal final class EmptyStateDrawer: CellDrawerProtocol {
         return tableView.dequeueReusableCell(withIdentifier: EmptyStateCell.cellIdentifier(), for: indexPath)
     }
     
-    func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any? = nil, at indexPath: IndexPath? = nil) {
+    func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any? = nil, at indexPath: IndexPath) {
         guard let cell = cell as? EmptyStateCell, let cellVM = item as? EmptyStateCellModel else {
             return
         }

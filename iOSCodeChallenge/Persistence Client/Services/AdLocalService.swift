@@ -8,17 +8,12 @@
 import Foundation
 import CoreData
 
-enum LocalFavoriteOperationResult {
-    case addedToFavorites(idResult: FavoriteAdDB)
-    case removedFromFavorites
-}
-
 protocol AdLocalServiceProtocol: LocalServiceProtocol{
 
     
     func fetchFavoriteAdList(success:@escaping([FavoriteAdDB])->(), failure: @escaping(PersistenceError)-> ())
     
-    func toggleFavoriteStatus(success: @escaping(LocalFavoriteOperationResult)->(), failure: @escaping(PersistenceError)-> ())
+    func toggleFavoriteStatus(idResultDTO: IDResultDTO, success: @escaping(_ isFavoriteAfterToggle: Bool)->(), failure: @escaping(PersistenceError)-> ())
     
     func fetchFavorite(adId: String, success: @escaping () -> (), failure: @escaping (PersistenceError) -> ())
     
@@ -36,11 +31,27 @@ class AdLocalService: AdLocalServiceProtocol {
     
     init(localClient: PersistenceClientProtocol = PersistenceClient()){
         self.persistenceClient = localClient
+        self.binder = PersistenceBinding()
     }
 
     
-    func toggleFavoriteStatus(success: @escaping(LocalFavoriteOperationResult)->(), failure: @escaping(PersistenceError)-> ()) {
+    func toggleFavoriteStatus(idResultDTO: IDResultDTO, success: @escaping(_ isFavoriteAfterToggle: Bool)->(), failure: @escaping(PersistenceError)-> ()) {
         
+        fetchFavorite(adId: idResultDTO.propertyCode ?? "") {
+            do {
+                try self.deleteFavorite(adId: idResultDTO.propertyCode ?? "")
+                success(false)
+            }catch{
+                failure(.couldNotDeleteObject)
+            }
+        } failure: { (error) in
+            do {
+                try self.addFavorite(idResultDTO)
+                success(true)
+            }catch{
+                failure(.couldNotSaveObject)
+            }
+        }
     }
     
     
@@ -74,7 +85,7 @@ class AdLocalService: AdLocalServiceProtocol {
             failure(PersistenceError.objectNotFound)
         }
     }
-
+    
     
     // MARK: - Delete
     private func deleteFavorite(adId: String) throws {
@@ -103,12 +114,12 @@ class AdLocalService: AdLocalServiceProtocol {
             throw PersistenceError.objectNotFound
         }
 
-        likeCharacter(idResultDTO: idResultDTO, favoriteDB: favoriteDB, context: context)
+        favoriteAd(idResultDTO: idResultDTO, favoriteDB: favoriteDB, context: context)
         try persistenceClient.persistDatabase(context: context)
     }
     
     // MARK: - Private Methods
-    private func likeCharacter(idResultDTO: IDResultDTO, favoriteDB: NSEntityDescription, context: NSManagedObjectContext) {
+    private func favoriteAd(idResultDTO: IDResultDTO, favoriteDB: NSEntityDescription, context: NSManagedObjectContext) {
         let favoriteEntity = FavoriteAdDB(entity: favoriteDB, insertInto: context)
         binder?.mapCharacter(favoriteAdDB: favoriteEntity, iDResultDTO: idResultDTO)
     }

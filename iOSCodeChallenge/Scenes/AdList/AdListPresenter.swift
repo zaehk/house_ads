@@ -11,6 +11,7 @@ import UIKit
 protocol AdListPresentationLogic
 {
     func presentRealStateAds(response: [(adListResult:IDResultDTO, isFavorite:Bool)])
+    func presentToggledFavorite(idResultDTO: IDResultDTO, newStatus: Bool, indexToReplace: Int)
     func presentErrorFetchingRealStateAds()
 }
 
@@ -47,5 +48,15 @@ class AdListPresenter: AdListPresentationLogic
         //add error state
         presentEmptyState()
     }
+    
+    func presentToggledFavorite(idResultDTO: IDResultDTO, newStatus: Bool, indexToReplace: Int) {
+        //parse to viewmodel with new favorite status after update
+        let adViewModel = AdViewModel.init(listDTO: idResultDTO, favorite: newStatus)
+        //parse to cellModel
+        let cellModel = AdCellModel.init(adViewModel: adViewModel)
+        //send it to viewcontroller
+        viewController?.updateCell(cellModel: cellModel, atIndex: indexToReplace)
+    }
+
     
 }

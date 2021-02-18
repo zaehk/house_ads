@@ -19,7 +19,7 @@ extension GetCellIdentifierProtocol where Self: UITableViewCell {
 
 internal protocol CellDrawerProtocol {
     func dequeueCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any?, at indexPath: IndexPath?)
+    func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any?, at indexPath: IndexPath)
 }
 
 extension CellDrawerProtocol {

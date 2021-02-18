@@ -10,6 +10,7 @@ import UIKit
 protocol AdListBusinessLogic
 {
     func fetchRealStateAds()
+    func toggleFavoriteStatus(index: Int)
 }
 
 protocol AdListDataStore
@@ -33,30 +34,34 @@ class AdListInteractor: AdListBusinessLogic, AdListDataStore
     func fetchRealStateAds() {
         adService?.fetchAdList(success: { [weak self] (adsResult) in
             self?.realStateAdsResults = adsResult.elementList
-            
-            
-            
-            self?.presenter?.presentRealStateAds(response: adsResult.elementList.map({return ($0,true)}))
+            self?.fetchFavoriteStatusFromLocalDB(responseModels: adsResult.elementList)
         }, failure: { [weak self] (error) in
             self?.presenter?.presentErrorFetchingRealStateAds()
         })
     }
     
-    private func fetchFavoriteStatusFromLocalDB(responseModels: [IDResultDTO]) {
+    func toggleFavoriteStatus(index: Int) {
+        let adToBeToggled = self.realStateAdsResults[index]
             
+        adLocalService?.toggleFavoriteStatus(idResultDTO: adToBeToggled, success: { [weak self] (newStatus) in
+            self?.presenter?.presentToggledFavorite(idResultDTO: adToBeToggled, newStatus: newStatus, indexToReplace: index)
+        }, failure: { (persistenceError) in
+            //present error
+        })
+        
+    }
+    
+    private func fetchFavoriteStatusFromLocalDB(responseModels: [IDResultDTO]) {
         var resultsWithFavoriteStatus: [(IDResultDTO,Bool)] = []
-  
-        DispatchQueue.global().async {
-            DispatchQueue.concurrentPerform(iterations: responseModels.count) { [weak self] (index) in
-                self?.adLocalService?.fetchFavorite(adId: responseModels[index].propertyCode ?? "", success: {
-                    resultsWithFavoriteStatus.append((responseModels[index],true))
-                }, failure: { (error) in
-                    //we can check type of error..
-                    resultsWithFavoriteStatus.append((responseModels[index],false))
-                })
-            }
-            self.presenter?.presentRealStateAds(response: resultsWithFavoriteStatus)
+        
+        for responseModel in responseModels {
+            self.adLocalService?.fetchFavorite(adId: responseModel.propertyCode ?? "", success: {
+                resultsWithFavoriteStatus.append((responseModel,true))
+            }, failure: { (error) in
+                resultsWithFavoriteStatus.append((responseModel,false))
+            })
         }
+        self.presenter?.presentRealStateAds(response: resultsWithFavoriteStatus)
     }
     
 }

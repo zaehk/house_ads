@@ -11,6 +11,7 @@ protocol AdListDisplayLogic: class
 {
     func showRealStateAds(viewModel: AdListViewModel)
     func showEmptyState(viewModel: AdListViewModel)
+    func updateCell(cellModel: DrawerItemProtocol, atIndex: Int)
 }
 
 class AdListViewController: UITableViewController
@@ -66,6 +67,11 @@ class AdListViewController: UITableViewController
 
 extension AdListViewController: AdListDisplayLogic {
     
+    func updateCell(cellModel: DrawerItemProtocol, atIndex: Int) {
+        self.cellModels[atIndex] = cellModel
+        tableView.reloadRows(at: [IndexPath.init(item: atIndex, section: 0)], with: .fade)
+    }
+    
     func showRealStateAds(viewModel: AdListViewModel) {
         refreshControl?.endRefreshing()
         //spinner.dismiss()
@@ -115,5 +121,12 @@ extension AdListViewController {
         router?.navigateToAdDetail(adIndex: indexPath.row)
     }
     
+}
+
+extension AdListViewController: AdTableViewCellFavoriteProtocol {
+    
+    func favButtonTapped(currentIndex: Int) {
+        interactor?.toggleFavoriteStatus(index: currentIndex)
+    }
     
 }

@@ -7,6 +7,10 @@
 import UIKit
 import SnapKit
 
+protocol AdTableViewCellFavoriteProtocol: NSObject {
+    func favButtonTapped(currentIndex: Int)
+}
+
 class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
     
     // MARK: - UIViews -
@@ -58,9 +62,11 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         return label
     }()
     
-    
+    // MARK: -Variables
     
     private var imagesCells: [CollectionDrawerItemProtocol] = []
+    private weak var delegate: AdTableViewCellFavoriteProtocol?
+    private var index: Int = 0
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -148,7 +154,7 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
     }
         
     @objc private func favoriteTapped(){
-        
+        delegate?.favButtonTapped(currentIndex: self.index)
     }
     
 
@@ -171,6 +177,14 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
         self.imagesCells = imagesURL.map({ AdImageCollectionCellModel.init(url: $0)})
         self.pictureNumberLabel.text = String(imagesCells.count)
         self.adPicturesCollectionView.reloadData()
+    }
+    
+    func setDelegate(delegate: AdTableViewCellFavoriteProtocol){
+        self.delegate = delegate
+    }
+    
+    func setCellIndex(index: Int){
+        self.index = index
     }
     
 }
