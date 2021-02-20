@@ -22,12 +22,6 @@ internal protocol CellDrawerProtocol {
     func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any?, at indexPath: IndexPath)
 }
 
-extension CellDrawerProtocol {
-    func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any? = nil, at indexPath: IndexPath? = nil) {
-        drawCell(cell, withItem: item, delegate: delegate, at: indexPath)
-    }
-}
-
 internal protocol DrawerItemProtocol {
     var cellDrawer: CellDrawerProtocol { get }
 }

@@ -10,7 +10,6 @@
 		22A2D6AB25C4220F00E174E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2D6AA25C4220F00E174E6 /* AppDelegate.swift */; };
 		22A2D6B425C4221000E174E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22A2D6B325C4221000E174E6 /* Assets.xcassets */; };
 		22A2D6B725C4221000E174E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A2D6B525C4221000E174E6 /* LaunchScreen.storyboard */; };
-		22A2D6C225C4221000E174E6 /* iOSCodeChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2D6C125C4221000E174E6 /* iOSCodeChallengeTests.swift */; };
 		22A2D6CD25C4221000E174E6 /* iOSCodeChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2D6CC25C4221000E174E6 /* iOSCodeChallengeUITests.swift */; };
 		22A2D71025C4230E00E174E6 /* IDResultListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2D70E25C4230E00E174E6 /* IDResultListTableViewController.swift */; };
 		22A2D71125C4230E00E174E6 /* IDResultListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A2D70F25C4230E00E174E6 /* IDResultListTableViewController.xib */; };
@@ -78,6 +77,15 @@
 		DABC43E525DCFB5D0007C6D1 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC43E425DCFB5D0007C6D1 /* PersistenceError.swift */; };
 		DABC43EF25DCFCAA0007C6D1 /* PersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC43EE25DCFCAA0007C6D1 /* PersistenceStore.swift */; };
 		DABC443025DD92D60007C6D1 /* AdLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC442F25DD92D60007C6D1 /* AdLocalService.swift */; };
+		DAC6769125E19156008809B3 /* FavoriteAdsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6768D25E19156008809B3 /* FavoriteAdsListViewControllerTests.swift */; };
+		DAC6769225E19156008809B3 /* FavoriteAdsListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6768E25E19156008809B3 /* FavoriteAdsListInteractorTests.swift */; };
+		DAC6769425E19156008809B3 /* FavoriteAdsListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6769025E19156008809B3 /* FavoriteAdsListPresenterTests.swift */; };
+		DAC6769F25E19179008809B3 /* AdListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6769B25E19179008809B3 /* AdListViewControllerTests.swift */; };
+		DAC676A025E19179008809B3 /* AdListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6769C25E19179008809B3 /* AdListInteractorTests.swift */; };
+		DAC676A225E19179008809B3 /* AdListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6769E25E19179008809B3 /* AdListPresenterTests.swift */; };
+		DAC676C825E196D3008809B3 /* AdDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC676C425E196D3008809B3 /* AdDetailViewControllerTests.swift */; };
+		DAC676C925E196D3008809B3 /* AdDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC676C525E196D3008809B3 /* AdDetailInteractorTests.swift */; };
+		DAC676CB25E196D3008809B3 /* AdDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC676C725E196D3008809B3 /* AdDetailPresenterTests.swift */; };
 		DC23D39D7AFF0EE0D5F9BD4B /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +113,6 @@
 		22A2D6B625C4221000E174E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22A2D6B825C4221000E174E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A2D6BD25C4221000E174E6 /* iOSCodeChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSCodeChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22A2D6C125C4221000E174E6 /* iOSCodeChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCodeChallengeTests.swift; sourceTree = "<group>"; };
 		22A2D6C325C4221000E174E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A2D6C825C4221000E174E6 /* iOSCodeChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSCodeChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A2D6CC25C4221000E174E6 /* iOSCodeChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCodeChallengeUITests.swift; sourceTree = "<group>"; };
@@ -184,6 +191,15 @@
 		DABC43E425DCFB5D0007C6D1 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
 		DABC43EE25DCFCAA0007C6D1 /* PersistenceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStore.swift; sourceTree = "<group>"; };
 		DABC442F25DD92D60007C6D1 /* AdLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLocalService.swift; sourceTree = "<group>"; };
+		DAC6768D25E19156008809B3 /* FavoriteAdsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAdsListViewControllerTests.swift; sourceTree = "<group>"; };
+		DAC6768E25E19156008809B3 /* FavoriteAdsListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAdsListInteractorTests.swift; sourceTree = "<group>"; };
+		DAC6769025E19156008809B3 /* FavoriteAdsListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAdsListPresenterTests.swift; sourceTree = "<group>"; };
+		DAC6769B25E19179008809B3 /* AdListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListViewControllerTests.swift; sourceTree = "<group>"; };
+		DAC6769C25E19179008809B3 /* AdListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListInteractorTests.swift; sourceTree = "<group>"; };
+		DAC6769E25E19179008809B3 /* AdListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListPresenterTests.swift; sourceTree = "<group>"; };
+		DAC676C425E196D3008809B3 /* AdDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		DAC676C525E196D3008809B3 /* AdDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailInteractorTests.swift; sourceTree = "<group>"; };
+		DAC676C725E196D3008809B3 /* AdDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailPresenterTests.swift; sourceTree = "<group>"; };
 		E22F8804167E9441FA64D259 /* Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeChallenge_iOSCodeChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD621F267E207638E0E5408D /* Pods-iOSCodeChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSCodeChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSCodeChallengeTests/Pods-iOSCodeChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,7 +278,7 @@
 		22A2D6C025C4221000E174E6 /* iOSCodeChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				22A2D6C125C4221000E174E6 /* iOSCodeChallengeTests.swift */,
+				DAC6768925E19114008809B3 /* Scenes */,
 				22A2D6C325C4221000E174E6 /* Info.plist */,
 			);
 			path = iOSCodeChallengeTests;
@@ -575,6 +591,46 @@
 				22A2D72325C425DF00E174E6 /* IDResultMultimediaDTO.swift */,
 			);
 			path = Multimedia;
+			sourceTree = "<group>";
+		};
+		DAC6768925E19114008809B3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6768C25E19127008809B3 /* FavoriteAdsList */,
+				DAC6768B25E19120008809B3 /* AdList */,
+				DAC6768A25E1911A008809B3 /* AdDetail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DAC6768A25E1911A008809B3 /* AdDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DAC676C425E196D3008809B3 /* AdDetailViewControllerTests.swift */,
+				DAC676C525E196D3008809B3 /* AdDetailInteractorTests.swift */,
+				DAC676C725E196D3008809B3 /* AdDetailPresenterTests.swift */,
+			);
+			path = AdDetail;
+			sourceTree = "<group>";
+		};
+		DAC6768B25E19120008809B3 /* AdList */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6769B25E19179008809B3 /* AdListViewControllerTests.swift */,
+				DAC6769C25E19179008809B3 /* AdListInteractorTests.swift */,
+				DAC6769E25E19179008809B3 /* AdListPresenterTests.swift */,
+			);
+			path = AdList;
+			sourceTree = "<group>";
+		};
+		DAC6768C25E19127008809B3 /* FavoriteAdsList */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6768D25E19156008809B3 /* FavoriteAdsListViewControllerTests.swift */,
+				DAC6768E25E19156008809B3 /* FavoriteAdsListInteractorTests.swift */,
+				DAC6769025E19156008809B3 /* FavoriteAdsListPresenterTests.swift */,
+			);
+			path = FavoriteAdsList;
 			sourceTree = "<group>";
 		};
 		EB878A2685826DEE8B9D12E4 /* Frameworks */ = {
@@ -897,7 +953,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22A2D6C225C4221000E174E6 /* iOSCodeChallengeTests.swift in Sources */,
+				DAC676CB25E196D3008809B3 /* AdDetailPresenterTests.swift in Sources */,
+				DAC6769125E19156008809B3 /* FavoriteAdsListViewControllerTests.swift in Sources */,
+				DAC676A225E19179008809B3 /* AdListPresenterTests.swift in Sources */,
+				DAC676A025E19179008809B3 /* AdListInteractorTests.swift in Sources */,
+				DAC676C825E196D3008809B3 /* AdDetailViewControllerTests.swift in Sources */,
+				DAC6769425E19156008809B3 /* FavoriteAdsListPresenterTests.swift in Sources */,
+				DAC6769F25E19179008809B3 /* AdListViewControllerTests.swift in Sources */,
+				DAC676C925E196D3008809B3 /* AdDetailInteractorTests.swift in Sources */,
+				DAC6769225E19156008809B3 /* FavoriteAdsListInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,7 +1176,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSCodeChallengeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1134,7 +1198,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSCodeChallengeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
