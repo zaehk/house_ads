@@ -38,7 +38,7 @@ extension ApiRouter: URLRequestConfiguration {
     var path: String {
         switch self{
         case .adList:
-            return ApiEndpoints.BaseURL.adList
+            return ApiEndpoints.listURL.adList
         case .adDetail(let detailUrl):
             return detailUrl
         }

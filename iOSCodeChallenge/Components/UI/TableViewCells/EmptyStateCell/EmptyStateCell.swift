@@ -14,14 +14,15 @@ class EmptyStateCell: UITableViewCell, GetCellIdentifierProtocol {
     private let emptyStateDescription: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = Styles.Colors.idealistaTitles
+        label.textColor = Styles.Colors.idealistaPurple
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .center
         return label
     }()
     
     private let emptyStateImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.tintColor = Styles.Colors.idealistaTitles
+        imageView.tintColor = Styles.Colors.idealistaPurple
         return imageView
     }()
     

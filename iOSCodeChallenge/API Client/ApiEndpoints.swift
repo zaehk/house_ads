@@ -9,7 +9,7 @@ import Foundation
 
 struct ApiEndpoints{
     
-    struct BaseURL{
+    struct listURL{
         static let adList = "https://www.mocky.io/v3/364d4f62-c183-4f12-ba16-49bfc5c820ab"
     }
     

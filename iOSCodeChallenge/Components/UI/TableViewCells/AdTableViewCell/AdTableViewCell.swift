@@ -140,8 +140,13 @@ class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
             make.height.width.equalTo(30)
         }
         
+        cameraImageView.snp.makeConstraints({
+            $0.height.width.equalTo(25)
+        })
+        
         pictureStackView.addArrangedSubview(pictureNumberLabel)
         pictureStackView.addArrangedSubview(cameraImageView)
+        
         pictureStackView.snp.makeConstraints { (make) in
             make.centerY.equalTo(descriptionLabel)
             make.right.equalToSuperview().inset(20)

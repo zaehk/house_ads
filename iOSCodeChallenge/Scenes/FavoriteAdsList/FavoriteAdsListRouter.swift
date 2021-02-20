@@ -14,47 +14,65 @@ import UIKit
 
 @objc protocol FavoriteAdsListRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func navigateToAdDetail(adIndex: Int)
 }
 
 protocol FavoriteAdsListDataPassing
 {
-  var dataStore: FavoriteAdsListDataStore? { get }
+    var dataStore: FavoriteAdsListDataStore? { get }
+    func passDataToAdDetail(index: Int, source: FavoriteAdsListDataStore, destination: inout AdDetailDataStore)
 }
 
 class FavoriteAdsListRouter: NSObject, FavoriteAdsListRoutingLogic, FavoriteAdsListDataPassing
 {
-  weak var viewController: FavoriteAdsListViewController?
-  var dataStore: FavoriteAdsListDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: FavoriteAdsListViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: FavoriteAdsListDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    
+    weak var viewController: FavoriteAdsListViewController?
+    var dataStore: FavoriteAdsListDataStore?
+    
+    func navigateToAdDetail(adIndex: Int) {
+        let adDetailVC = AdDetailBuilder.viewController()
+        if var adDetailDS = adDetailVC.router?.dataStore, let adListDataStore = dataStore {
+            passDataToAdDetail(index: adIndex, source: adListDataStore, destination: &adDetailDS)
+        }
+        viewController?.navigationController?.pushViewController(adDetailVC, animated: true)
+    }
+    
+    func passDataToAdDetail(index: Int, source: FavoriteAdsListDataStore, destination: inout AdDetailDataStore) {
+        destination.idResultDTO = source.favoriteAds[index]
+    }
+    
 }
+
+
+//@objc protocol AdListRoutingLogic
+//{
+//    func navigateToAdDetail(adIndex: Int)
+//}
+//
+//protocol AdListDataPassing
+//{
+//    var dataStore: AdListDataStore? { get }
+//
+//    func passDataToAdDetail(index: Int, source: AdListDataStore, destination: inout AdDetailDataStore)
+//}
+//
+//class AdListRouter: NSObject, AdListRoutingLogic, AdListDataPassing
+//{
+//
+//    weak var viewController: AdListViewController?
+//    var dataStore: AdListDataStore?
+//
+//
+//    func navigateToAdDetail(adIndex: Int) {
+//        let adDetailVC = AdDetailBuilder.viewController()
+//        if var adDetailDS = adDetailVC.router?.dataStore, let adListDataStore = dataStore {
+//            passDataToAdDetail(index: adIndex, source: adListDataStore, destination: &adDetailDS)
+//        }
+//        viewController?.navigationController?.pushViewController(adDetailVC, animated: true)
+//    }
+//
+//    func passDataToAdDetail(index: Int, source: AdListDataStore, destination: inout AdDetailDataStore) {
+//        destination.idResultDTO = source.realStateAdsResults[index]
+//    }
+//
+//}

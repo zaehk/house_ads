@@ -14,36 +14,111 @@ import UIKit
 
 protocol FavoriteAdsListDisplayLogic: class
 {
-  func displaySomething(viewModel: FavoriteAdsList.Something.ViewModel)
+    func showFavoriteAds(viewModel: AdListViewModel)
+    func showEmptyState(viewModel: AdListViewModel)
+    func removeFavoriteCell(atIndex: Int)
 }
 
-class FavoriteAdsListViewController: UITableViewController, FavoriteAdsListDisplayLogic
+class FavoriteAdsListViewController: UITableViewController
 {
-  var interactor: FavoriteAdsListBusinessLogic?
-  var router: (NSObjectProtocol & FavoriteAdsListRoutingLogic & FavoriteAdsListDataPassing)?
+    var interactor: FavoriteAdsListBusinessLogic?
+    var router: (NSObjectProtocol & FavoriteAdsListRoutingLogic & FavoriteAdsListDataPassing)?
+    
+    var cells: [DrawerItemProtocol] = []
+    
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        setupViews()
+        setupTableSettings()
+    }
+    
+    private func setupViews(){
+        self.title = Literals.Favorites.title
+        self.navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchFavoriteAds()
+    }
+    
+    private func setupTableSettings(){
+        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 200
+    }
+    
+    
+    // MARK: - Fetch favorite ads from coreData
+    
+    private func fetchFavoriteAds(){
+        interactor?.fetchFavoriteAds()
+    }
+    
+    private func updateCellsToShow(newCells: [DrawerItemProtocol]){
+        self.cells = newCells
+        tableView.reloadData()
+    }
+    
+}
 
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    self.title = Literals.Favorites.title
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = FavoriteAdsList.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: FavoriteAdsList.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+extension FavoriteAdsListViewController: FavoriteAdsListDisplayLogic {
+    
+    func showFavoriteAds(viewModel: AdListViewModel) {
+        refreshControl?.endRefreshing()
+        updateCellsToShow(newCells: viewModel.cellModelsToShow)
+    }
+    
+    //we are using the same cells and flow to show the empty state but is separated in a different method so we could give it a customized behaviour if wanted (showing an alert. spinner...)
+    func showEmptyState(viewModel: AdListViewModel) {
+        refreshControl?.endRefreshing()
+        updateCellsToShow(newCells: viewModel.cellModelsToShow)
+    }
+    
+    //all cells showing in this VC are favorites, if we change their favorite status they should dissappear
+    func removeFavoriteCell(atIndex: Int) {
+        cells.remove(at: atIndex)
+        let indexPath = IndexPath(item: atIndex, section: 0)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
+}
+
+extension FavoriteAdsListViewController{
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if cells[indexPath.row] is EmptyStateCellModel {
+            return tableView.frame.size.height
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        cells.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = cells[indexPath.row]
+        let drawer = cellModel.cellDrawer
+        let cell = drawer.dequeueCell(tableView, cellForRowAt: indexPath)
+        drawer.drawCell(cell, withItem: cellModel, delegate: self, at: indexPath)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.navigateToAdDetail(adIndex: indexPath.row)
+    }
+    
+}
+
+extension FavoriteAdsListViewController: AdTableViewCellFavoriteProtocol {
+    
+    func favButtonTapped(currentIndex: Int) {
+        interactor?.removeFromFavorite(index: currentIndex)
+    }
+
 }

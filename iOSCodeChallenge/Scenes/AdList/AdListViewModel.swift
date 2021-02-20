@@ -55,7 +55,6 @@ internal struct AdViewModel {
             })
             
         }
-        
-
     }
+    
 }

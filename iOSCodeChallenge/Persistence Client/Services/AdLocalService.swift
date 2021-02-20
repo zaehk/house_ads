@@ -11,7 +11,7 @@ import CoreData
 protocol AdLocalServiceProtocol: LocalServiceProtocol{
 
     
-    func fetchFavoriteAdList(success:@escaping([FavoriteAdDB])->(), failure: @escaping(PersistenceError)-> ())
+    func fetchFavoriteAdList(success:@escaping([IDResultDTO])->(), failure: @escaping(PersistenceError)-> ())
     
     func toggleFavoriteStatus(idResultDTO: IDResultDTO, success: @escaping(_ isFavoriteAfterToggle: Bool)->(), failure: @escaping(PersistenceError)-> ())
     
@@ -23,7 +23,7 @@ class AdLocalService: AdLocalServiceProtocol {
 
     
     let equalsIdPredicate = "id == %@"
-    private var binder: PersistenceBinding?
+    private var binder: PersistenceBinding
 
     
     
@@ -56,13 +56,14 @@ class AdLocalService: AdLocalServiceProtocol {
     
     
     // MARK: - Fetch All
-    func fetchFavoriteAdList(success: @escaping ([FavoriteAdDB]) -> (), failure: @escaping (PersistenceError) -> ()) {
+    func fetchFavoriteAdList(success: @escaping ([IDResultDTO]) -> (), failure: @escaping (PersistenceError) -> ()) {
         PersistenceStore.persistentStoreContainer?.performBackgroundTask({ context in
             let favoriteAdsRequest: NSFetchRequest<FavoriteAdDB> = NSFetchRequest(entityName: String(describing: FavoriteAdDB.self))
 
             do {
                 let favoriteAdElements = try context.fetch(favoriteAdsRequest)
-                success(favoriteAdElements)
+                let idResultsDTO = self.binder.mapIDResults(favoritesAdDB: favoriteAdElements)
+                success(idResultsDTO)
             } catch {
                 failure(PersistenceError.objectNotFound)
             }
@@ -88,7 +89,8 @@ class AdLocalService: AdLocalServiceProtocol {
     
     
     // MARK: - Delete
-    private func deleteFavorite(adId: String) throws {
+    
+    func deleteFavorite(adId: String) throws {
         guard let context = PersistenceStore.managedObjectContext else {
             throw PersistenceError.managedObjectContextNotFound
         }
@@ -121,7 +123,7 @@ class AdLocalService: AdLocalServiceProtocol {
     // MARK: - Private Methods
     private func favoriteAd(idResultDTO: IDResultDTO, favoriteDB: NSEntityDescription, context: NSManagedObjectContext) {
         let favoriteEntity = FavoriteAdDB(entity: favoriteDB, insertInto: context)
-        binder?.mapCharacter(favoriteAdDB: favoriteEntity, iDResultDTO: idResultDTO)
+        binder.mapFavorite(favoriteAdDB: favoriteEntity, iDResultDTO: idResultDTO)
     }
     
 

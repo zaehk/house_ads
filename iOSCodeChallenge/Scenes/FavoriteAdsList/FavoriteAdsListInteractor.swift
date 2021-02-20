@@ -14,28 +14,54 @@ import UIKit
 
 protocol FavoriteAdsListBusinessLogic
 {
-  func doSomething(request: FavoriteAdsList.Something.Request)
+    func fetchFavoriteAds()
+    func removeFromFavorite(index: Int)
 }
 
 protocol FavoriteAdsListDataStore
 {
-  //var name: String { get set }
+    var favoriteAds: [IDResultDTO] { get set }
 }
 
 class FavoriteAdsListInteractor: FavoriteAdsListBusinessLogic, FavoriteAdsListDataStore
 {
-  var presenter: FavoriteAdsListPresentationLogic?
-  var worker: FavoriteAdsListWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: FavoriteAdsList.Something.Request)
-  {
-    worker = FavoriteAdsListWorker()
-    worker?.doSomeWork()
+    var presenter: FavoriteAdsListPresentationLogic?
+    var adLocalService: AdLocalServiceProtocol?
     
-    let response = FavoriteAdsList.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var favoriteAds: [IDResultDTO] = []
+    
+    init(adLocalService: AdLocalServiceProtocol = AdLocalService()){
+        self.adLocalService = adLocalService
+    }
+    
+    func fetchFavoriteAds() {
+        adLocalService?.fetchFavoriteAdList(success: { [weak self] (idResultDTOList) in
+            DispatchQueue.main.async {
+                self?.favoriteAds = idResultDTOList
+                self?.presenter?.presentFavoriteAds(ads: idResultDTOList)
+            }
+        }, failure: { [weak self] (persistenceError) in
+            DispatchQueue.main.async {
+                self?.presenter?.presentEmptyState()
+            }
+        })
+    }
+    
+    func removeFromFavorite(index: Int) {
+        adLocalService?.toggleFavoriteStatus(idResultDTO: favoriteAds[index], success: { [weak self] (favoriteStatus) in
+            if !favoriteStatus {
+                self?.removeFavoriteAdResult(index: index)
+            } else {
+                self?.presenter?.presentRemovingFromFavoritesError()
+            }
+        }, failure: { [weak self] (persistenceError) in
+            self?.presenter?.presentRemovingFromFavoritesError()
+        })
+    }
+    
+    private func removeFavoriteAdResult(index:Int){
+        self.favoriteAds.remove(at: index)
+        presenter?.presentFavoriteAds(ads: self.favoriteAds)
+    }
+    
 }

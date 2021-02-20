@@ -21,8 +21,8 @@ class PurpleRoundedContainer: UIView {
      }
     
      func commonInit(){
-        backgroundColor = Styles.Colors.idealistaMain.withAlphaComponent(0.1)
-        layer.borderWidth = 2
+        backgroundColor = Styles.Colors.idealistaPurple.withAlphaComponent(0.1)
+        layer.borderWidth = 3
         layer.borderColor = Styles.Colors.idealistaPurple.cgColor
         layer.cornerRadius = 10
         clipsToBounds = true

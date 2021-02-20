@@ -12,14 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         let tabbarController = MainTabbarController()
         window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
-
-        debugPrint("Database Directory: ", FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last ?? "Not Found!")
-
-
-        
         return true
-        
-        
     }
     
     // MARK: - Core Data stack
