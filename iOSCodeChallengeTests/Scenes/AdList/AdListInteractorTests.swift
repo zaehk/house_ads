@@ -13,57 +13,71 @@
 @testable import iOSCodeChallenge
 import XCTest
 
-//class AdListInteractorTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: AdListInteractor!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    setupAdListInteractor()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupAdListInteractor()
-//  {
-//    sut = AdListInteractor()
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class AdListPresentationLogicSpy: AdListPresentationLogic
-//  {
-//    var presentSomethingCalled = false
-//    
-//    func presentSomething(response: AdList.Something.Response)
-//    {
-//      presentSomethingCalled = true
-//    }
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testDoSomething()
-//  {
-//    // Given
-//    let spy = AdListPresentationLogicSpy()
-//    sut.presenter = spy
-//    let request = AdList.Something.Request()
-//    
-//    // When
-//    sut.doSomething(request: request)
-//    
-//    // Then
-//    XCTAssertTrue(spy.presentSomethingCalled, "doSomething(request:) should ask the presenter to format the result")
-//  }
-//}
+class AdListInteractorTests: XCTestCase
+{
+    // MARK: Subject under test
+    
+    var sut: AdListInteractor!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp()
+    {
+        super.setUp()
+        setupAdListInteractor()
+    }
+    
+    override func tearDown()
+    {
+        super.tearDown()
+    }
+    
+    // MARK: Test setup
+    
+    func setupAdListInteractor()
+    {
+        sut = AdListInteractor()
+    }
+    
+    // MARK: Test doubles
+    
+    class AdListPresentationLogicSpy: AdListPresentationLogic
+    {
+        var presentRealStateAdsCalled = false
+        var presentToggledFavoriteCalled = false
+        var presentErrorFetchingRealStateAdsCalled = false
+        
+        
+        func presentRealStateAds(response: [(adListResult: IDResultDTO, isFavorite: Bool)]) {
+            presentRealStateAdsCalled = true
+        }
+        
+        func presentToggledFavorite(idResultDTO: IDResultDTO, newStatus: Bool, indexToReplace: Int) {
+            presentToggledFavoriteCalled = true
+        }
+        
+        func presentErrorFetchingRealStateAds() {
+            presentErrorFetchingRealStateAdsCalled = true
+        }
+        
+    }
+    
+    // MARK: Tests
+    
+    func testfetchRealStateAds()
+    {
+        // Given
+        let spy = AdListPresentationLogicSpy()
+        let adServiceMock = AdServiceMock()
+        sut.adService = adServiceMock
+        sut.presenter = spy
+        
+        // When
+        sut.fetchRealStateAds()
+        
+        // Then
+        XCTAssertTrue(adServiceMock.fetchAdListCalled, "fetchRealStateAds should ask the adService to fetch ads")
+    }
+    
+
+}

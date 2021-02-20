@@ -62,6 +62,12 @@
 		DA8F58E025D9323B005F098D /* EmptyStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DC25D9323B005F098D /* EmptyStateCell.swift */; };
 		DA8F58E125D9323B005F098D /* EmptyStateCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DD25D9323B005F098D /* EmptyStateCellModel.swift */; };
 		DA8F58E325D9323B005F098D /* EmptyStateDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F58DF25D9323B005F098D /* EmptyStateDrawer.swift */; };
+		DAA662BA25E1A23D00C042AD /* idResultDTO.json in Resources */ = {isa = PBXBuildFile; fileRef = DAA662B925E1A23D00C042AD /* idResultDTO.json */; };
+		DAA662C225E1A29000C042AD /* JsonMockDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA662C125E1A29000C042AD /* JsonMockDecoder.swift */; };
+		DAA662C825E1A59200C042AD /* AdServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA662C725E1A59200C042AD /* AdServiceMock.swift */; };
+		DAA662D425E1A59C00C042AD /* AdLocalServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA662D325E1A59C00C042AD /* AdLocalServiceMock.swift */; };
+		DAA662D925E1A61100C042AD /* ApiClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA662D825E1A61100C042AD /* ApiClientMock.swift */; };
+		DAA662DE25E1A6F000C042AD /* PersistenceClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA662DD25E1A6F000C042AD /* PersistenceClientMock.swift */; };
 		DAA99FB525DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */; };
 		DAA99FE025DAE20300FBC274 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FDA25DAE20200FBC274 /* ApiEndpoints.swift */; };
 		DAA9A01625DAE67700FBC274 /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A01225DAE67700FBC274 /* ApiErrorType.swift */; };
@@ -176,6 +182,12 @@
 		DA8F58DC25D9323B005F098D /* EmptyStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCell.swift; sourceTree = "<group>"; };
 		DA8F58DD25D9323B005F098D /* EmptyStateCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCellModel.swift; sourceTree = "<group>"; };
 		DA8F58DF25D9323B005F098D /* EmptyStateDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateDrawer.swift; sourceTree = "<group>"; };
+		DAA662B925E1A23D00C042AD /* idResultDTO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = idResultDTO.json; sourceTree = "<group>"; };
+		DAA662C125E1A29000C042AD /* JsonMockDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMockDecoder.swift; sourceTree = "<group>"; };
+		DAA662C725E1A59200C042AD /* AdServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdServiceMock.swift; sourceTree = "<group>"; };
+		DAA662D325E1A59C00C042AD /* AdLocalServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdLocalServiceMock.swift; sourceTree = "<group>"; };
+		DAA662D825E1A61100C042AD /* ApiClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientMock.swift; sourceTree = "<group>"; };
+		DAA662DD25E1A6F000C042AD /* PersistenceClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceClientMock.swift; sourceTree = "<group>"; };
 		DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius+Shadow.swift"; sourceTree = "<group>"; };
 		DAA99FDA25DAE20200FBC274 /* ApiEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 		DAA9A01225DAE67700FBC274 /* ApiErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiErrorType.swift; sourceTree = "<group>"; };
@@ -278,8 +290,11 @@
 		22A2D6C025C4221000E174E6 /* iOSCodeChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAA662C625E1A58400C042AD /* ServiceMocks */,
+				DAA662B825E1A1E500C042AD /* JSON */,
 				DAC6768925E19114008809B3 /* Scenes */,
 				22A2D6C325C4221000E174E6 /* Info.plist */,
+				DAA662C125E1A29000C042AD /* JsonMockDecoder.swift */,
 			);
 			path = iOSCodeChallengeTests;
 			sourceTree = "<group>";
@@ -551,6 +566,25 @@
 			path = EmptyStateCell;
 			sourceTree = "<group>";
 		};
+		DAA662B825E1A1E500C042AD /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				DAA662B925E1A23D00C042AD /* idResultDTO.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		DAA662C625E1A58400C042AD /* ServiceMocks */ = {
+			isa = PBXGroup;
+			children = (
+				DAA662C725E1A59200C042AD /* AdServiceMock.swift */,
+				DAA662D325E1A59C00C042AD /* AdLocalServiceMock.swift */,
+				DAA662D825E1A61100C042AD /* ApiClientMock.swift */,
+				DAA662DD25E1A6F000C042AD /* PersistenceClientMock.swift */,
+			);
+			path = ServiceMocks;
+			sourceTree = "<group>";
+		};
 		DAA9A03625DAEE9C00FBC274 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,6 +798,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA662BA25E1A23D00C042AD /* idResultDTO.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,14 +988,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA662DE25E1A6F000C042AD /* PersistenceClientMock.swift in Sources */,
 				DAC676CB25E196D3008809B3 /* AdDetailPresenterTests.swift in Sources */,
 				DAC6769125E19156008809B3 /* FavoriteAdsListViewControllerTests.swift in Sources */,
+				DAA662D925E1A61100C042AD /* ApiClientMock.swift in Sources */,
 				DAC676A225E19179008809B3 /* AdListPresenterTests.swift in Sources */,
 				DAC676A025E19179008809B3 /* AdListInteractorTests.swift in Sources */,
 				DAC676C825E196D3008809B3 /* AdDetailViewControllerTests.swift in Sources */,
+				DAA662C825E1A59200C042AD /* AdServiceMock.swift in Sources */,
 				DAC6769425E19156008809B3 /* FavoriteAdsListPresenterTests.swift in Sources */,
 				DAC6769F25E19179008809B3 /* AdListViewControllerTests.swift in Sources */,
 				DAC676C925E196D3008809B3 /* AdDetailInteractorTests.swift in Sources */,
+				DAA662C225E1A29000C042AD /* JsonMockDecoder.swift in Sources */,
+				DAA662D425E1A59C00C042AD /* AdLocalServiceMock.swift in Sources */,
 				DAC6769225E19156008809B3 /* FavoriteAdsListInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

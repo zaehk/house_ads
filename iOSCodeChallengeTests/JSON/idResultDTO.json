@@ -1,0 +1,21 @@
+{
+   "propertyCode":"90858668",
+   "thumbnail":"https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/af/09/db/800267473.jpg",
+   "price":700.0,
+   "propertyType":"flat",
+   "operation":"rent",
+   "multimedia":{
+      "images":[
+         {
+            "url":"https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/2d/87/9d/799737649.jpg"
+         },
+         {
+            "url":"https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/af/09/db/800267473.jpg"
+         },
+         {
+            "url":"https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/2a/b2/77/800267505.jpg"
+         }
+      ]
+   },
+   "detailUrl":"https://run.mocky.io/v3/aedc7cf5-b739-4614-af4c-4f66ffe0bd56"
+}
