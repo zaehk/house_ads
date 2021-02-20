@@ -248,9 +248,8 @@
 				DA46090A25D7DC7200A69DD0 /* Extensions */,
 				DA5C0F7D25DC58D600799B1F /* Persistence Client */,
 				22A2D71C25C4250800E174E6 /* API Client */,
-				22A2D70D25C422D500E174E6 /* List */,
+				22A2D70D25C422D500E174E6 /* OLD */,
 				22A2D6AA25C4220F00E174E6 /* AppDelegate.swift */,
-				22A2D6B325C4221000E174E6 /* Assets.xcassets */,
 				22A2D6B525C4221000E174E6 /* LaunchScreen.storyboard */,
 				22A2D6B825C4221000E174E6 /* Info.plist */,
 				DA46090525D7DAF600A69DD0 /* Literals.swift */,
@@ -278,7 +277,7 @@
 			path = iOSCodeChallengeUITests;
 			sourceTree = "<group>";
 		};
-		22A2D70D25C422D500E174E6 /* List */ = {
+		22A2D70D25C422D500E174E6 /* OLD */ = {
 			isa = PBXGroup;
 			children = (
 				22A2D70E25C4230E00E174E6 /* IDResultListTableViewController.swift */,
@@ -286,7 +285,7 @@
 				22A2D73225C427A600E174E6 /* IDResultListTableViewCell.swift */,
 				22A2D73725C427BE00E174E6 /* IDResultListTableViewCell.xib */,
 			);
-			path = List;
+			path = OLD;
 			sourceTree = "<group>";
 		};
 		22A2D71C25C4250800E174E6 /* API Client */ = {
@@ -307,8 +306,7 @@
 		22A2D71D25C4251400E174E6 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				22A2D72325C425DF00E174E6 /* IDResultMultimediaDTO.swift */,
-				22A2D72825C4261900E174E6 /* IDResultMultimediaImageDTO.swift */,
+				DAC6767325E18521008809B3 /* Multimedia */,
 				DAA9A04025DAFD0F00FBC274 /* Detail */,
 				DAA9A03F25DAFD0A00FBC274 /* List */,
 			);
@@ -340,6 +338,7 @@
 		DA46091325D7DCBF00A69DD0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22A2D6B325C4221000E174E6 /* Assets.xcassets */,
 				DA46091B25D7DDEB00A69DD0 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -567,6 +566,15 @@
 				DABC442F25DD92D60007C6D1 /* AdLocalService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DAC6767325E18521008809B3 /* Multimedia */ = {
+			isa = PBXGroup;
+			children = (
+				22A2D72825C4261900E174E6 /* IDResultMultimediaImageDTO.swift */,
+				22A2D72325C425DF00E174E6 /* IDResultMultimediaDTO.swift */,
+			);
+			path = Multimedia;
 			sourceTree = "<group>";
 		};
 		EB878A2685826DEE8B9D12E4 /* Frameworks */ = {
