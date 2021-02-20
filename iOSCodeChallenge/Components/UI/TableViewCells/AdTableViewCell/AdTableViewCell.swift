@@ -9,6 +9,7 @@ import SnapKit
 
 protocol AdTableViewCellFavoriteProtocol: NSObject {
     func favButtonTapped(currentIndex: Int)
+    func collectionImageTapped(currentIndex: Int)
 }
 
 class AdTableViewCell: UITableViewCell, GetCellIdentifierProtocol {
@@ -208,6 +209,10 @@ extension AdTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource,
         let cell = drawer.dequeueCollectionCell(collectionView, indexPath: indexPath)
         drawer.drawCollectionCell(cell, withItem: model)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.collectionImageTapped(currentIndex: index)
     }
     
 }

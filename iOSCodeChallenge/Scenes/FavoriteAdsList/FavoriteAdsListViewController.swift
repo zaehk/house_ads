@@ -110,12 +110,19 @@ extension FavoriteAdsListViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router?.navigateToAdDetail(adIndex: indexPath.row)
+        if cells[indexPath.row] is AdCellModel {
+            router?.navigateToAdDetail(adIndex: indexPath.row)
+        }
     }
     
 }
 
 extension FavoriteAdsListViewController: AdTableViewCellFavoriteProtocol {
+    
+    //if the user taps on items of the collectionview instead of scrolling (ad pictures)
+    func collectionImageTapped(currentIndex: Int) {
+        router?.navigateToAdDetail(adIndex: currentIndex)
+    }
     
     func favButtonTapped(currentIndex: Int) {
         interactor?.removeFromFavorite(index: currentIndex)

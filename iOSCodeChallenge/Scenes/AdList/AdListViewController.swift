@@ -80,7 +80,7 @@ extension AdListViewController: AdListDisplayLogic {
     
     func showEmptyState(viewModel: AdListViewModel) {
         refreshControl?.endRefreshing()
-        //we are using the same cells and flow to show the empty state but is separated in a different method so we could give it a customized behaviour if wanted (showing an alert. spinner...)
+        //we are using the same cells variable and flow to show the empty state but is separated in a different method so we could give it a customized behaviour if wanted (showing an alert. spinner...)
         updateCellsToShow(newCells: viewModel.cellModelsToShow)
     }
     
@@ -118,12 +118,18 @@ extension AdListViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router?.navigateToAdDetail(adIndex: indexPath.row)
+        if cellModels[indexPath.row] is AdCellModel {
+            router?.navigateToAdDetail(adIndex: indexPath.row)
+        }
     }
     
 }
 
 extension AdListViewController: AdTableViewCellFavoriteProtocol {
+    
+    func collectionImageTapped(currentIndex: Int) {
+        router?.navigateToAdDetail(adIndex: currentIndex)
+    }
     
     func favButtonTapped(currentIndex: Int) {
         interactor?.toggleFavoriteStatus(index: currentIndex)
