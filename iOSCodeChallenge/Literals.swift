@@ -45,4 +45,12 @@ struct Literals {
         static let adList = "empty_state_adList".localized()
     }
     
+    struct Error{
+        static let accept = "accept".localized()
+        static let error = "error".localized()
+        static let exit = "exit".localized()
+        static let favoriteToggleError = "favorite_toggle_error".localized()
+        static let adDetailError = "ad_detail_error".localized()
+    }
+    
 }

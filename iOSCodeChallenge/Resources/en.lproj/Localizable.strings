@@ -33,3 +33,10 @@
 
 
 "price_month" = "/Month";
+
+//error messages
+"favorite_toggle_error" = "No se pudo realizar el cambio de favorito";
+"ad_detail_error" = "Ocurrió un error descargando el anuncio";
+"accept" = "Aceptar";
+"error" = "Error";
+"exit" = "Salir";

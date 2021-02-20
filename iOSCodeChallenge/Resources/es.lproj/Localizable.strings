@@ -33,3 +33,10 @@
 
 
 "price_month" = "/Mes";
+
+//error messages
+"favorite_toggle_error" = "Favorite change did not succeed";
+"ad_detail_error" = "An error happened downloading the ad details";
+"accept" = "Accept";
+"error" = "Error";
+"exit" = "Exit";

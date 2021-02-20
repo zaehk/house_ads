@@ -123,13 +123,13 @@ class AdDetailViewController: UIViewController
 extension AdDetailViewController: AdDetailDisplayLogic {
     
     func showFavoriteError() {
-        let alert = UIAlertController.init(title: "Error", message: "No se pudo guardar el cambio de favoritos", preferredStyle: .alert)
-        alert.addAction(UIAlertAction.init(title: "Aceptar", style: .default, handler: nil))
+        let alert = UIAlertController.init(title: Literals.Error.error, message: Literals.Error.favoriteToggleError, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: Literals.Error.accept, style: .default, handler: nil))
     }
     
     func showAdDetailError() {
-        let alert = UIAlertController.init(title: nil, message: "Hubo un error descargando los datos del anuncio", preferredStyle: .alert)
-        alert.addAction(UIAlertAction.init(title: "Salir", style: .default, handler: { (_) in
+        let alert = UIAlertController.init(title: nil, message: Literals.Error.adDetailError, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: Literals.Error.accept, style: .default, handler: { (_) in
             self.navigationController?.popViewController(animated: true)
         }))
     }
