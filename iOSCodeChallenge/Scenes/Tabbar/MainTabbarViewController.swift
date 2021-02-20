@@ -13,9 +13,10 @@ class MainTabbarController: UITabBarController {
         super.viewDidLoad()
         
         self.tabBar.barStyle = .default
-        self.tabBar.tintColor = .black
+        self.tabBar.tintColor = Styles.Colors.idealistaPurple
         self.tabBar.unselectedItemTintColor = .black
         self.tabBar.isTranslucent = false
+        
         
         let adListVC = AdListBuilder.viewController()
         adListVC.tabBarItem = UITabBarItem.init(title: Literals.AdList.title , image: UIImage.init(named: "tabbar_adList"), tag: 0)
