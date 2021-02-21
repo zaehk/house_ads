@@ -1,0 +1,76 @@
+{
+	"elementList": [{
+		"propertyCode": "90858668",
+		"thumbnail": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/af/09/db/800267473.jpg",
+		"price": 700.0,
+		"propertyType": "flat",
+		"operation": "rent",
+		"multimedia": {
+			"images": [
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/2d/87/9d/799737649.jpg"},
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/af/09/db/800267473.jpg"},
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/2a/b2/77/800267505.jpg"}
+			]
+		},
+                "detailUrl": "https://run.mocky.io/v3/aedc7cf5-b739-4614-af4c-4f66ffe0bd56"
+	}, {
+		"propertyCode": "90858670",
+		"thumbnail": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/af/09/db/800267473.jpg",
+		"price": 650.0,
+		"propertyType": "studio",
+		"operation": "rent",
+		"multimedia": {
+			"images": [
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/23/db/64/800267508.jpg"},
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/a7/2f/09/800267514.jpg"} 
+			]
+		},
+                "detailUrl": "https://run.mocky.io/v3/f883e7e8-2e77-4d96-91d8-be2e444b632e"
+	},
+{
+		"propertyCode": "90858677",
+		"thumbnail": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/af/09/db/800267473.jpg",
+		"price": 450.0,
+		"propertyType": "penthouse",
+		"operation": "rent",
+		"multimedia": {
+			"images": [
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/1e/b7/61/800267518.jpg"},
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/d7/b7/32/800267537.jpg"}
+			]
+		},
+                "detailUrl": "https://run.mocky.io/v3/73e1beba-f6b1-49f9-87f3-26cf35f91c7d"
+	},
+{
+		"propertyCode": "90858687",
+		"thumbnail": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/af/09/db/800267473.jpg",
+		"price": 570.0,
+		"propertyType": "duplex",
+		"operation": "rent",
+                "multimedia": {
+			"images": [
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/9d/0e/0a/800267519.jpg"},
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/13/c5/88/800267540.jpg"},
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/8a/64/41/800267548.jpg"},
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/1f/dd/e8/800267560.jpg"}
+			]
+		},
+                "detailUrl": "https://run.mocky.io/v3/2ef5a6b6-40e5-47f1-881b-10423c801e38"
+	},
+{
+		"propertyCode": "90858699",
+		"thumbnail": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/af/09/db/800267473.jpg",
+		"price": 490.0,
+		"propertyType": "chalet",
+		"operation": "rent",
+		"multimedia": {
+			"images": [
+{"url": "https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/2a/b2/77/800267505.jpg"},
+{"url":"https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/0d/f5/8c/800267583.jpg"},
+{"url":"https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/3f/79/b3/800267571.jpg"},
+{"url":"https://img3.idealista.cz/blur/WEB_LISTING-M/0/id.pro.es.image.master/ab/d6/bd/800260137.jpg"}
+			]
+		},
+                "detailUrl": "https://run.mocky.io/v3/f9af34cb-650b-4e84-a877-d3248848de0d"
+	}]
+}
