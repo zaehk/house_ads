@@ -12,58 +12,75 @@
 
 @testable import iOSCodeChallenge
 import XCTest
-//
-//class AdDetailInteractorTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: AdDetailInteractor!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    setupAdDetailInteractor()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupAdDetailInteractor()
-//  {
-//    sut = AdDetailInteractor()
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class AdDetailPresentationLogicSpy: AdDetailPresentationLogic
-//  {
-//    var presentSomethingCalled = false
-//    
-//    func presentSomething(response: AdDetail.Something.Response)
-//    {
-//      presentSomethingCalled = true
-//    }
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testDoSomething()
-//  {
-//    // Given
-//    let spy = AdDetailPresentationLogicSpy()
-//    sut.presenter = spy
-//    let request = AdDetail.Something.Request()
-//    
-//    // When
-//    sut.doSomething(request: request)
-//    
-//    // Then
-//    XCTAssertTrue(spy.presentSomethingCalled, "doSomething(request:) should ask the presenter to format the result")
-//  }
-//}
+
+class AdDetailInteractorTests: XCTestCase
+{
+    // MARK: Subject under test
+    
+    var sut: AdDetailInteractor!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp()
+    {
+        super.setUp()
+        setupAdDetailInteractor()
+    }
+    
+    override func tearDown()
+    {
+        super.tearDown()
+    }
+    
+    // MARK: Test setup
+    
+    func setupAdDetailInteractor()
+    {
+        sut = AdDetailInteractor()
+    }
+    
+    // MARK: Test doubles
+    
+    class AdDetailPresentationLogicSpy: AdDetailPresentationLogic
+    {
+        var presentAdDetailCalled = false
+        var presentErrorCalled = false
+        var presentFavoriteErrorCalled = false
+        
+        func presentAdDetail(idDetailDTO: IDDetailDTO, isFavorite: Bool) {
+            presentAdDetailCalled = true
+        }
+        
+        func presentError() {
+            presentErrorCalled = true
+        }
+        
+        func presentFavoriteError() {
+            presentFavoriteErrorCalled = true
+        }
+        
+        
+    }
+    
+    // MARK: Tests
+    
+    func testFetchAdDetail()
+    {
+        // Given
+        let spy = AdDetailPresentationLogicSpy()
+        let adServiceMock = AdServiceMock.init(expectedAdList: .success, expectedAdDetail: .success)
+        let localAdServiceMock = AdLocalServiceMock.init(expectedResultCheckIfIsFavorite: true, expectedFromFavoriteAdList: .success)
+        
+        sut.idResultDTO = JSONMockDecoder.decode(mock: "idResultDTO")
+        sut.presenter = spy
+        sut.adLocalService = localAdServiceMock
+        sut.adService = adServiceMock
+        
+        
+        // When
+        sut.fetchAdDetail()
+        
+        // Then
+        XCTAssertTrue(spy.presentAdDetailCalled, "fetchAdDetail(request:) should ask the presenter to format the result")
+    }
+}

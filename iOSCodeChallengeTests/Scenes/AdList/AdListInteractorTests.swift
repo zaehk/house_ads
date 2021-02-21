@@ -83,7 +83,7 @@ class AdListInteractorTests: XCTestCase
         let spy = AdListPresentationLogicSpy()
         let adServiceMock = AdServiceMock(expectedAdList: .success, expectedAdDetail: .success)
         sut.adService = adServiceMock
-        sut.adLocalService = AdLocalServiceMock.init(expectedResultCheckIfIsFavorite: true)
+        sut.adLocalService = AdLocalServiceMock.init(expectedResultCheckIfIsFavorite: true, expectedFromFavoriteAdList: .success)
         sut.presenter = spy
         
         // When
@@ -112,7 +112,7 @@ class AdListInteractorTests: XCTestCase
     {
         // Given
         let adServiceMock = AdServiceMock(expectedAdList: .success, expectedAdDetail: .success)
-        let adLocalServiceMock = AdLocalServiceMock(expectedResultCheckIfIsFavorite: true)
+        let adLocalServiceMock = AdLocalServiceMock(expectedResultCheckIfIsFavorite: true, expectedFromFavoriteAdList: .success)
         
         sut.adService = adServiceMock
         sut.adLocalService = adLocalServiceMock
@@ -129,7 +129,7 @@ class AdListInteractorTests: XCTestCase
     {
         // Given
         let adServiceMock = AdServiceMock(expectedAdList: .success, expectedAdDetail: .success)
-        let adLocalServiceMock = AdLocalServiceMock(expectedResultCheckIfIsFavorite: true)
+        let adLocalServiceMock = AdLocalServiceMock(expectedResultCheckIfIsFavorite: true, expectedFromFavoriteAdList: .success)
         
         let resultList: IDResultsDTO = JSONMockDecoder.decode(mock: "idResultList")
         sut.realStateAdsResults = resultList.elementList

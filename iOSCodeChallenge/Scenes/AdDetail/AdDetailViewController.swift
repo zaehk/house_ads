@@ -27,7 +27,7 @@ class AdDetailViewController: UIViewController
     
     // MARK: -Views-
     
-    private let adPicturesCollectionView: UICollectionView = {
+    let adPicturesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0;
@@ -41,7 +41,7 @@ class AdDetailViewController: UIViewController
         return collectionView
     }()
     
-    private let descriptionTextView: UITextView = {
+    let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = .black
         textView.font = UIFont.systemFont(ofSize: 20, weight: .medium)
@@ -51,8 +51,8 @@ class AdDetailViewController: UIViewController
         return textView
     }()
     
-    private let priceLabel: PriceLabel = PriceLabel()
-    private let favoriteButton: FavoriteButton = FavoriteButton()
+    let priceLabel: PriceLabel = PriceLabel()
+    let favoriteButton: FavoriteButton = FavoriteButton()
     
     // MARK: View lifecycle
     

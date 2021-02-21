@@ -13,80 +13,79 @@
 @testable import iOSCodeChallenge
 import XCTest
 
-//class AdDetailViewControllerTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: AdDetailViewController!
-//  var window: UIWindow!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    window = UIWindow()
-//    setupAdDetailViewController()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    window = nil
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupAdDetailViewController()
-//  {
-//    let bundle = Bundle.main
-//    let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-//    sut = storyboard.instantiateViewController(withIdentifier: "AdDetailViewController") as! AdDetailViewController
-//  }
-//  
-//  func loadView()
-//  {
-//    window.addSubview(sut.view)
-//    RunLoop.current.run(until: Date())
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class AdDetailBusinessLogicSpy: AdDetailBusinessLogic
-//  {
-//    var doSomethingCalled = false
-//    
-//    func doSomething(request: AdDetail.Something.Request)
-//    {
-//      doSomethingCalled = true
-//    }
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testShouldDoSomethingWhenViewIsLoaded()
-//  {
-//    // Given
-//    let spy = AdDetailBusinessLogicSpy()
-//    sut.interactor = spy
-//    
-//    // When
-//    loadView()
-//    
-//    // Then
-//    XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
-//  }
-//  
-//  func testDisplaySomething()
-//  {
-//    // Given
-//    let viewModel = AdDetail.Something.ViewModel()
-//    
-//    // When
-//    loadView()
-//    sut.displaySomething(viewModel: viewModel)
-//    
-//    // Then
-//    //XCTAssertEqual(sut.nameTextField.text, "", "displaySomething(viewModel:) should update the name text field")
-//  }
-//}
+class AdDetailViewControllerTests: XCTestCase
+{
+  // MARK: Subject under test
+  
+  var sut: AdDetailViewController!
+  var window: UIWindow!
+  
+  // MARK: Test lifecycle
+  
+  override func setUp()
+  {
+    super.setUp()
+    window = UIWindow()
+    setupAdDetailViewController()
+  }
+  
+  override func tearDown()
+  {
+    window = nil
+    super.tearDown()
+  }
+  
+  // MARK: Test setup
+  
+  func setupAdDetailViewController()
+  {
+    
+    sut = AdDetailViewController()
+  }
+  
+  func loadView()
+  {
+    window.addSubview(sut.view)
+    RunLoop.current.run(until: Date())
+  }
+  
+  // MARK: Test doubles
+  
+  class AdDetailBusinessLogicSpy: AdDetailBusinessLogic
+  {
+    var fetchAdDetailCalled = false
+    var toggleFavoriteStatusCalled = false
+    
+    func fetchAdDetail() {
+        fetchAdDetailCalled = true
+    }
+    
+    func toggleFavoriteStatus() {
+        toggleFavoriteStatusCalled = true
+    }
+    
+  }
+  
+  // MARK: Tests
+  
+  func testShouldDisplayAdDetailViewModel()
+  {
+    // Given
+    let spy = AdDetailBusinessLogicSpy()
+    sut.interactor = spy
+    
+    // When
+    loadView()
+    
+    let adDetailDTO : IDDetailDTO = JSONMockDecoder.decode(mock: "idAdDetail")
+    let viewModel = AdDetailViewModel.init(idDetailDTO: adDetailDTO, isFavorite: true)
+    sut.showAdDetail(viewModel: viewModel)
+    
+    // Then
+    
+    XCTAssertEqual(viewModel.description, sut.descriptionTextView.text, "showAdDetail() shoud load the viewModel description in the textview")
+    XCTAssertEqual(viewModel.price, sut.priceLabel.text, "showAdDetail() should set the price description in the price label")
+    XCTAssertEqual(sut.favoriteButton.image(for: .normal), UIImage.init(named: "filled_favorite") , "showAdDetail() should set the favoriteButton image to be filled")
+  }
+    
+}
