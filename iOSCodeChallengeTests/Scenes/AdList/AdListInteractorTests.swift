@@ -64,13 +64,11 @@ class AdListInteractorTests: XCTestCase
     
     // MARK: Tests
     
-    func testfetchRealStateAds()
+    func testFetchRealStateAds()
     {
         // Given
-        let spy = AdListPresentationLogicSpy()
         let adServiceMock = AdServiceMock(expectedAdList: .success, expectedAdDetail: .success)
         sut.adService = adServiceMock
-        sut.presenter = spy
         
         // When
         sut.fetchRealStateAds()
@@ -79,16 +77,45 @@ class AdListInteractorTests: XCTestCase
         XCTAssertTrue(adServiceMock.fetchAdListCalled, "fetchRealStateAds should ask the adService to fetch ads")
     }
     
-    func testFetchFavoriteStatusFromDB()
+    func testFetchRealStateAdsSuccess()
     {
         // Given
         let spy = AdListPresentationLogicSpy()
         let adServiceMock = AdServiceMock(expectedAdList: .success, expectedAdDetail: .success)
-        let adLocalServiceMock = AdLocalServiceMock()
+        sut.adService = adServiceMock
+        sut.adLocalService = AdLocalServiceMock.init(expectedResultCheckIfIsFavorite: true)
+        sut.presenter = spy
+        
+        // When
+        sut.fetchRealStateAds()
+        
+        // Then
+        XCTAssertTrue(spy.presentRealStateAdsCalled, "fetchRealStateAds should ask the presenter to presentRealStateAds on success")
+    }
+    
+    func testFetchRealStateAdsFailed()
+    {
+        // Given
+        let spy = AdListPresentationLogicSpy()
+        let adServiceMock = AdServiceMock(expectedAdList: .error, expectedAdDetail: .success)
+        sut.adService = adServiceMock
+        sut.presenter = spy
+        
+        // When
+        sut.fetchRealStateAds()
+        
+        // Then
+        XCTAssertTrue(spy.presentErrorFetchingRealStateAdsCalled, "fetchRealStateAds should ask the presenter to presentErrorFetchingRealStateAds on failure")
+    }
+    
+    func testFetchFavoriteStatusFromDB()
+    {
+        // Given
+        let adServiceMock = AdServiceMock(expectedAdList: .success, expectedAdDetail: .success)
+        let adLocalServiceMock = AdLocalServiceMock(expectedResultCheckIfIsFavorite: true)
         
         sut.adService = adServiceMock
         sut.adLocalService = adLocalServiceMock
-        sut.presenter = spy
         
         // When
         sut.fetchRealStateAds()
@@ -96,6 +123,24 @@ class AdListInteractorTests: XCTestCase
         // Then
         XCTAssertTrue(adLocalServiceMock.checkIfIsFavoriteCalled, "if fetchRealStateAds return results, the interactor must ask the adLocalService to retrieve the favorite status")
         XCTAssertEqual(adLocalServiceMock.checkIfIsFavoriteNumberOfTimesCalled, 5, "checkIfIsFavorite must be called the same number of times as elements in the result array (5 in this JSON)")
+    }
+    
+    func testToggleFavoriteStatus()
+    {
+        // Given
+        let adServiceMock = AdServiceMock(expectedAdList: .success, expectedAdDetail: .success)
+        let adLocalServiceMock = AdLocalServiceMock(expectedResultCheckIfIsFavorite: true)
+        
+        let resultList: IDResultsDTO = JSONMockDecoder.decode(mock: "idResultList")
+        sut.realStateAdsResults = resultList.elementList
+        sut.adService = adServiceMock
+        sut.adLocalService = adLocalServiceMock
+        
+        // When
+        sut.toggleFavoriteStatus(index: 0)
+        
+        // Then
+        XCTAssertTrue(adLocalServiceMock.toggleFavoriteStatusCalled, "interactor.toggleFavoriteStatus() must call the local service method toggleFavoriteStatus")
     }
     
 
