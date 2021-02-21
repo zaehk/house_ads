@@ -15,11 +15,24 @@ class AdLocalServiceMock: AdLocalServiceProtocol {
     var checkIfIsFavoriteCalled = false
     
     var expectedBehaviourCheckIfFavorite = false
+    var expectedBehaviourFromFavoriteAdList: ExpectedMockResponse
     
     var checkIfIsFavoriteNumberOfTimesCalled = 0
     
     func fetchFavoriteAdList(success: @escaping ([IDResultDTO]) -> (), failure: @escaping (PersistenceError) -> ()) {
         fetchFavoriteAdListCalled = true
+        
+        switch expectedBehaviourFromFavoriteAdList {
+        
+        case .error:
+            failure(.objectNotFound)
+        case .emptyBodyArray:
+            let result : IDResultsDTO = JSONMockDecoder.decode(mock: "idResultListEmpty")
+            success(result.elementList)
+        case .success:
+            let result : IDResultsDTO = JSONMockDecoder.decode(mock: "idResultList")
+            success(result.elementList)
+        }
     }
     
     func toggleFavoriteStatus(idResultDTO: IDResultDTO, success: @escaping (Bool) -> (), failure: @escaping (PersistenceError) -> ()) {
@@ -34,9 +47,11 @@ class AdLocalServiceMock: AdLocalServiceProtocol {
     
     var persistenceClient: PersistenceClientProtocol
     
-    init(expectedResultCheckIfIsFavorite: Bool){
+    init(expectedResultCheckIfIsFavorite: Bool, expectedFromFavoriteAdList : ExpectedMockResponse
+){
         persistenceClient = PersistenceClientMock()
         expectedBehaviourCheckIfFavorite = expectedResultCheckIfIsFavorite
+        expectedBehaviourFromFavoriteAdList = expectedFromFavoriteAdList
     }
     
     
