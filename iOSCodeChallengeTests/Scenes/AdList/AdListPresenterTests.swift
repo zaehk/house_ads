@@ -13,52 +13,110 @@
 @testable import iOSCodeChallenge
 import XCTest
 
-//class AdListPresenterTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: AdListPresenter!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    setupAdListPresenter()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupAdListPresenter()
-//  {
-//    sut = AdListPresenter()
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class AdListDisplayLogicSpy: AdListDisplayLogic
-//  {
-//
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testPresentSomething()
-//  {
-//    // Given
-//    let spy = AdListDisplayLogicSpy()
-//    sut.viewController = spy
-//    let response = AdList.Something.Response()
-//    
-//    // When
-//    sut.presentSomething(response: response)
-//    
-//    // Then
-//    XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")
-//  }
-//}
+class AdListPresenterTests: XCTestCase
+{
+    // MARK: Subject under test
+    
+    var sut: AdListPresenter!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp()
+    {
+        super.setUp()
+        setupAdListPresenter()
+    }
+    
+    override func tearDown()
+    {
+        super.tearDown()
+    }
+    
+    // MARK: Test setup
+    
+    func setupAdListPresenter()
+    {
+        sut = AdListPresenter()
+    }
+    
+    // MARK: Test doubles
+    
+    class AdListDisplayLogicSpy: AdListDisplayLogic
+    {
+        var showRealStateAdsCalled = false
+        var showEmptyStateCalled = false
+        var updateCellCalled = false
+        
+        func showRealStateAds(viewModel: AdListViewModel) {
+            showRealStateAdsCalled = true
+        }
+        
+        func showEmptyState(viewModel: AdListViewModel) {
+            showEmptyStateCalled = true
+        }
+        
+        func updateCell(cellModel: DrawerItemProtocol, atIndex: Int) {
+            updateCellCalled = true
+        }
+        
+    }
+    
+    // MARK: Tests
+    
+    func testPresentRealStateAds()
+    {
+        // Given
+        let spy = AdListDisplayLogicSpy()
+        sut.viewController = spy
+        let response: IDResultsDTO = JSONMockDecoder.decode(mock: "idResultList")
+        let presentableResponse: [(IDResultDTO,Bool)] = response.elementList.map({($0,true)})
+        
+        // When
+        sut.presentRealStateAds(response: presentableResponse)
+        
+        // Then
+        XCTAssertTrue(spy.showRealStateAdsCalled, "presentRealStateAds(response:) should ask the view controller to display the real state ads cells")
+    }
+    
+    func testPresentRealStateAdsWithEmptyArray()
+    {
+        // Given
+        let spy = AdListDisplayLogicSpy()
+        sut.viewController = spy
+        let response: IDResultsDTO = JSONMockDecoder.decode(mock: "idResultListEmpty")
+        let presentableResponse: [(IDResultDTO,Bool)] = response.elementList.map({($0,true)})
+        
+        // When
+        sut.presentRealStateAds(response: presentableResponse)
+        
+        // Then
+        XCTAssertTrue(spy.showEmptyStateCalled, "presentRealStateAds(response:) should check if the array of results is empty and call the viewcontroller to show an empty state in that scenario")
+    }
+    
+    func testPresentErrorFetchingRealStateAds()
+    {
+        // Given
+        let spy = AdListDisplayLogicSpy()
+        sut.viewController = spy
+        
+        // When
+        sut.presentErrorFetchingRealStateAds()
+        
+        // Then
+        XCTAssertTrue(spy.showEmptyStateCalled, "PresentErrorFetchingRealStateAds should ask the view controller to display an emptyState")
+    }
+    
+    func testPresentToggledFavorite()
+    {
+        // Given
+        let spy = AdListDisplayLogicSpy()
+        sut.viewController = spy
+        let resultDTO: IDResultDTO = JSONMockDecoder.decode(mock: "idResultDTO")
+        
+        // When
+        sut.presentToggledFavorite(idResultDTO: resultDTO, newStatus: true, indexToReplace: 3)
+        
+        // Then
+        XCTAssertTrue(spy.updateCellCalled, "PresentToggledFavorite should ask the view controller update the cell that changed the favorite status")
+    }
+}
