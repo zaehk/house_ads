@@ -20,7 +20,9 @@ The following pods were added to the project:
 
 I decided to use SnapKit on this project to practice creating and setup views programatically (because it is the way to go for apple in the following years using SwiftUI and i wanted to learn to do it un UIKit). Although all the views in this project are made using SnapKit, i always use .xibs for each view and i even have templates to create cells using the pattern used here: 
 
-CELL EXAMPLE
+## Cell implementation example
+
+This implementation make the cell management easier using protocols. The tableviewcontroller doesnt have to know the specific type of cell used and you can even mix different cells in the same array as long as they conform to the same DrawerItemProtocol.
 
 - CellModel: class containing all the info that the cell are gonna need to show.
 - Drawer: class that dequeue and draw the cell using the model info.
