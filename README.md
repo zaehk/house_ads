@@ -16,6 +16,16 @@ The following pods were added to the project:
 - Snapkit  (setup views constraints programatically)
 - SnapshotTesting (test UI using snapshots)
 
+## UI 
+
+I decided to use SnapKit on this project to practice creating and setup views programatically (because it is the way to go for apple in the following years using SwiftUI and i wanted to learn to do it un UIKit). Although all the views in this project are made using SnapKit, i always use .xibs for each view and i even have templates to create cells using the pattern used here: 
+
+CELL EXAMPLE
+
+- CellModel: class containing all the info that the cell are gonna need to show.
+- Drawer: class that dequeue and draw the cell using the model info.
+- Cell: The actual cell that only serves as a container for views and shouldnt have any logic.
+
 # Scenes
 
 ## AD LIST 
