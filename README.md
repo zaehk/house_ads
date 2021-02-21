@@ -14,6 +14,7 @@ The communication between the components of a scene are made through protocols. 
 The following pods were added to the project:
 
 - Snapkit  (setup views constraints programatically)
+- SnapshotTesting (test UI using snapshots)
 
 # Scenes
 
