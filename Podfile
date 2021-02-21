@@ -7,6 +7,7 @@ target 'iOSCodeChallenge' do
 
   # Pods for iOSCodeChallenge
   pod 'SnapKit'
+  pod 'SnapshotTesting'
 
   target 'iOSCodeChallengeTests' do
     inherit! :search_paths

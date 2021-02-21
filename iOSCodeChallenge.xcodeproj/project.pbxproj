@@ -72,6 +72,10 @@
 		DAA662EB25E2545F00C042AD /* MockFileConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA662EA25E2545F00C042AD /* MockFileConstant.swift */; };
 		DAA662F725E254D200C042AD /* idResultListEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = DAA662F625E254D200C042AD /* idResultListEmpty.json */; };
 		DAA662FC25E255EC00C042AD /* ServiceResponseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA662FB25E255EC00C042AD /* ServiceResponseMock.swift */; };
+		DAA6634125E2681200C042AD /* AdListSnapshotTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6634025E2681200C042AD /* AdListSnapshotTesting.swift */; };
+		DAA6634625E26A8D00C042AD /* FavoriteAdsListSnapshotTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6634525E26A8D00C042AD /* FavoriteAdsListSnapshotTesting.swift */; };
+		DAA6634B25E26B6000C042AD /* AdDetailSnapshotTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6634A25E26B6000C042AD /* AdDetailSnapshotTesting.swift */; };
+		DAA6635025E26BD100C042AD /* idAdDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = DAA6634F25E26BD100C042AD /* idAdDetail.json */; };
 		DAA99FB525DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */; };
 		DAA99FE025DAE20300FBC274 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA99FDA25DAE20200FBC274 /* ApiEndpoints.swift */; };
 		DAA9A01625DAE67700FBC274 /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9A01225DAE67700FBC274 /* ApiErrorType.swift */; };
@@ -196,6 +200,10 @@
 		DAA662EA25E2545F00C042AD /* MockFileConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileConstant.swift; sourceTree = "<group>"; };
 		DAA662F625E254D200C042AD /* idResultListEmpty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = idResultListEmpty.json; sourceTree = "<group>"; };
 		DAA662FB25E255EC00C042AD /* ServiceResponseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResponseMock.swift; sourceTree = "<group>"; };
+		DAA6634025E2681200C042AD /* AdListSnapshotTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListSnapshotTesting.swift; sourceTree = "<group>"; };
+		DAA6634525E26A8D00C042AD /* FavoriteAdsListSnapshotTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAdsListSnapshotTesting.swift; sourceTree = "<group>"; };
+		DAA6634A25E26B6000C042AD /* AdDetailSnapshotTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailSnapshotTesting.swift; sourceTree = "<group>"; };
+		DAA6634F25E26BD100C042AD /* idAdDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = idAdDetail.json; sourceTree = "<group>"; };
 		DAA99FB425DA5ACE00FBC274 /* View+CornerRadius+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius+Shadow.swift"; sourceTree = "<group>"; };
 		DAA99FDA25DAE20200FBC274 /* ApiEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 		DAA9A01225DAE67700FBC274 /* ApiErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiErrorType.swift; sourceTree = "<group>"; };
@@ -298,6 +306,7 @@
 		22A2D6C025C4221000E174E6 /* iOSCodeChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAA6633F25E267FA00C042AD /* SnapShotTesting */,
 				DAA662C625E1A58400C042AD /* ServiceMocks */,
 				DAA662B825E1A1E500C042AD /* JSON */,
 				DAC6768925E19114008809B3 /* Scenes */,
@@ -598,11 +607,22 @@
 		DAA662F525E2547100C042AD /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				DAA6634F25E26BD100C042AD /* idAdDetail.json */,
 				DAA662E225E253A500C042AD /* idResultList.json */,
 				DAA662B925E1A23D00C042AD /* idResultDTO.json */,
 				DAA662F625E254D200C042AD /* idResultListEmpty.json */,
 			);
 			path = Files;
+			sourceTree = "<group>";
+		};
+		DAA6633F25E267FA00C042AD /* SnapShotTesting */ = {
+			isa = PBXGroup;
+			children = (
+				DAA6634025E2681200C042AD /* AdListSnapshotTesting.swift */,
+				DAA6634525E26A8D00C042AD /* FavoriteAdsListSnapshotTesting.swift */,
+				DAA6634A25E26B6000C042AD /* AdDetailSnapshotTesting.swift */,
+			);
+			path = SnapShotTesting;
 			sourceTree = "<group>";
 		};
 		DAA9A03625DAEE9C00FBC274 /* Services */ = {
@@ -819,6 +839,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAA662BA25E1A23D00C042AD /* idResultDTO.json in Resources */,
+				DAA6635025E26BD100C042AD /* idAdDetail.json in Resources */,
 				DAA662F725E254D200C042AD /* idResultListEmpty.json in Resources */,
 				DAA662E325E253A500C042AD /* idResultList.json in Resources */,
 			);
@@ -1015,7 +1036,9 @@
 				DAC6769125E19156008809B3 /* FavoriteAdsListViewControllerTests.swift in Sources */,
 				DAA662D925E1A61100C042AD /* ApiClientMock.swift in Sources */,
 				DAC676A225E19179008809B3 /* AdListPresenterTests.swift in Sources */,
+				DAA6634B25E26B6000C042AD /* AdDetailSnapshotTesting.swift in Sources */,
 				DAC676A025E19179008809B3 /* AdListInteractorTests.swift in Sources */,
+				DAA6634125E2681200C042AD /* AdListSnapshotTesting.swift in Sources */,
 				DAC676C825E196D3008809B3 /* AdDetailViewControllerTests.swift in Sources */,
 				DAA662C825E1A59200C042AD /* AdServiceMock.swift in Sources */,
 				DAC6769425E19156008809B3 /* FavoriteAdsListPresenterTests.swift in Sources */,
@@ -1026,6 +1049,7 @@
 				DAC6769225E19156008809B3 /* FavoriteAdsListInteractorTests.swift in Sources */,
 				DAA662FC25E255EC00C042AD /* ServiceResponseMock.swift in Sources */,
 				DAA662EB25E2545F00C042AD /* MockFileConstant.swift in Sources */,
+				DAA6634625E26A8D00C042AD /* FavoriteAdsListSnapshotTesting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
