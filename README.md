@@ -49,8 +49,16 @@ when the user clicks on any ad, a new screen with the ad details will be shown. 
 If the movie detail call results in error, an alert will be shown so the user can acept it and exit the failing ad
 
 ## FAVORITE ADS 
+All the ads that were added to favorites, will be shown here. If the user taps again the favorite icon (always true in this view) the selected add will be removed because it is no longer a favorite ad. The cells are the same as the main ad list. 
+
+![alt text](https://i.imgur.com/aZfd5Ou.png)
+
+If no ads are added to favorites, an emptyState view will be shown:
+
+![alt text](https://i.imgur.com/IU0q7NG.png)
+
 
 ## Unit Testing & Snapshot Testing
 
-Unit testing and snapshot testing were implemented to test the three main scenes on the app (adList, adDetail, favoriteAds).
+Unit testing and snapshot testing were implemented to test the flow and logic of the app. 
 
